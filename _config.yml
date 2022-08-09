@@ -12,15 +12,15 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "air" #"default"  "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Site Title"
+title                    : "blog.rhysgoodwin.com"
 title_separator          : "-"
-subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Your Name"
-description              : "An amazing website."
+subtitle                 : "I AM the system administrator. Who do I call?" # site tagline that appears below site title in masthead
+name                     : #"Rhys Goodwin"
+description              : #
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -104,10 +104,13 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
+  name             : "Rhys Goodwin"
+  avatar           : "/img/avatar-icon.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : >
+                    This is one of my blogs just a few bits and pieces;  IT, woodwork, metalwork, electronics, DIY, technology 
+                    articles and anything else I might be currently interested in and get around to documenting.
+
+  location         : "Tāmaki-Makaurau"
   email            :
   links:
     - label: "Email"
@@ -220,7 +223,7 @@ sass:
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: NZDT # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins (previously gems:)
@@ -289,4 +292,4 @@ defaults:
       read_time: true
       comments: # true
       share: true
-      related: true
+      related: false

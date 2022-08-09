@@ -1,0 +1,32 @@
+#!/bin/bash
+
+#Clear out the current QA database
+mysqldump --user=QADBUser --password=secretepassword --no-data --add-drop-table wpqadb | grep ^DROP | /usr/bin/mysql  --user=QADBUser --password=secretepassword wpqadb
+
+#Clear out the current blogqa directory
+rm -rf /home/publicHTML/qasite
+
+
+#Copy the database from production using sed to swap out the urls and paths
+mysqldump --user=QADBUser --password=secretepassword wpdb | sed -e 's-blog\.rhysgoodwin\.com-blogqa.rhysgoodwin\.com-g' -e 's-/home/publicHTML/prodsite-/home/publicHTML/qasite-g' | mysql --user=QADBUser --password=secretepassword wpqadb
+
+#copy over the procuction directory
+cp /home/publicHTML/prodsite /home/publicHTML/qasite -r
+
+#copy over the qa version of  wp-config
+cp /home/scripts/wp-config.php.qa /home/publicHTML/qasite/wp-config.php
+
+#copy over the .htaccess file which secures the QA site
+cp /home/scripts/.htaccess.qa /home/publicHTML/qasite/.htaccess
+
+
+#For some reason the mystique theme resets its setting the first time you access the blog after copying it.  
+#I could't find out why so just re-insert in the fixup file along with the blog name.
+
+#wget the qa blog once to get it to "initialize" and let Mystique roast it's settings!
+wget --user=myuser --password=mypassword http://blogqa.rhysgoodwin.com -O /dev/null
+
+mysql  --user=QADBUser --password=secretepassword << eof
+use wpqadb;
+source /home/scripts/fixup.sql;
+eof

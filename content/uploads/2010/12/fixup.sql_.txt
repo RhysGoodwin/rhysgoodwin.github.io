@@ -1,0 +1,2 @@
+REPLACE INTO `wp_options` (`option_id`, `blog_id`, `option_name`, `option_value`, `autoload`) VALUES (2,0,'blogname','QA Weblog!','yes');
+UPDATE wp_options SET option_value = '' WHERE option_name = 'active_plugins';

@@ -20,7 +20,7 @@ These are my first little lathe projects. After all, isn’t the point of having
 
 These were made from bits of brass and steel I got from the scrap dealer. The threads were all cut with tap and die. The lathe can cut threads but I cannot (yet).
 
-****Thumb Screw** for Gear Change Cover**
+**Thumb Screw for Gear Change Cover**
 
 I don’t yet have a knurling tool so I just put some rings around the outside for grip.
 

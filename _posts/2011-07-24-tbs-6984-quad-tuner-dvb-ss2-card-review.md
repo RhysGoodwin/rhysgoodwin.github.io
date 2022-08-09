@@ -56,20 +56,21 @@ I’m not going to pretend that I could explain all the technical aspects of the
 - Infrared Receiver Cable
 - Power Cable
 
-<div style="text-align: center;">[![](/content/uploads/2011/07/PackageContents1-1024x663.jpg "PackageContents")](/content/uploads/2011/07/PackageContents1.jpg)</div>The build quality of the card is excellent – all the soldering looks clean and solid, and the components are well aligned. The bracket has labels for the tuners ‘A’ through ‘D’ stamped on it – a nice touch. The chipset consists of the following:
+[![](/content/uploads/2011/07/PackageContents1.jpg "PackageContents")](/content/uploads/2011/07/PackageContents1.jpg)The build quality of the card is excellent – all the soldering looks clean and solid, and the components are well aligned. The bracket has labels for the tuners ‘A’ through ‘D’ stamped on it – a nice touch. The chipset consists of the following:
 
 - 2x Trident CX24132 Dual DVB-S2 Tuner
 - 2x Trident CX24117 Dual DVB-S2 Demodulator
 - 2x Intersil ISL6422B Dual Output LNB Supply and Control Voltage Regulator
 - 1x Trident SAA7160E PCI Express Audio/Video Capture Bridge
 
-<div>[![](/content/uploads/2011/07/PCBClose-1024x768.jpg "PCBClose")](/content/uploads/2011/07/PCBClose.jpg)</div>The remote is pretty basic; but let’s be honest, if you’re looking for a quad tuner card you’re probably an HTPC enthusiast in which case you’ll already have an advanced remote. If not you’ll need to get one! It has TV and navigation buttons, but lacks buttons for the advanced features you’d typically find in media centre packages like MediaPortal. That said, it will do just fine to get you up and running with basic TV software.
+[![](/content/uploads/2011/07/PCBClose.jpg "PCBClose")](/content/uploads/2011/07/PCBClose.jpg)The remote is pretty basic; but let’s be honest, if you’re looking for a quad tuner card you’re probably an HTPC enthusiast in which case you’ll already have an advanced remote. If not you’ll need to get one! It has TV and navigation buttons, but lacks buttons for the advanced features you’d typically find in media centre packages like MediaPortal. That said, it will do just fine to get you up and running with basic TV software.
 
 As for the driver CD, I haven’t even put it in my PC. Personally I never use the driver CDs which come with any hardware. I prefer to go straight to the web and download the very latest version. It would be nice if TBS released a white-box version of this product, which included just the card and the power cable.
 
 TBS state that the additional power cable is only required when you need extra current for driving things like dish positioning motors and *some* LNBs. In general, you shouldn’t require it which is good – the less cables floating around the better when it comes to an HTPC that you’re trying to keep cool with a minimum of fans.
 
-<span class="Apple-style-span" style="font-size: 18px; font-weight: bold;">Installation</span>
+
+### Installation
 
 I’d love to go into great detail about the installation but there really isn’t much to say. The hardware side is obvious – unplug your PC and install the card into a spare PCIe 1x slot.
 
@@ -81,11 +82,11 @@ As for the driver, TBS keeps it simple which I really appreciate. You don’t ha
 
 MediaPortal is a free and open source media centre package for Windows.
 
-<div class="wp-caption aligncenter" id="attachment_1467" style="width: 563px">[![MediaPortal TV Guide](/content/uploads/2011/07/MPTVGuide1.jpg "MPTVGuide")](/content/uploads/2011/07/MPTVGuide1.jpg)MediaPortal TV Guide
+[![MediaPortal TV Guide](/content/uploads/2011/07/MPTVGuide1.jpg "MPTVGuide")](/content/uploads/2011/07/MPTVGuide1.jpg)MediaPortal TV Guide
 
-</div><div class="wp-caption aligncenter" id="attachment_1466" style="width: 563px">[![MediaPortal Home](/content/uploads/2011/07/MPHome.jpg "MPHome")](/content/uploads/2011/07/MPHome.jpg)MediaPortal Home
+[![MediaPortal Home](/content/uploads/2011/07/MPHome.jpg "MPHome")](/content/uploads/2011/07/MPHome.jpg)MediaPortal Home
 
-</div>You can get a wealth of information and support at the [Team-MediaPortal](http://www.team-mediaportal.com/) site, but these are the basic components that you’ll need to get TV up and running with the TBS 6984. The remainder of this review will focus on the TV Server component of MediaPortal.
+You can get a wealth of information and support at the [Team-MediaPortal](http://www.team-mediaportal.com/) site, but these are the basic components that you’ll need to get TV up and running with the TBS 6984. The remainder of this review will focus on the TV Server component of MediaPortal.
 
 - MediaPortal – this is the main front-end application. You can have this installed on as many PCs around the house as you like
 - TV Server – this is a Windows service which manages all TV streaming and recording. It can be on the same or a different PC to the MediaPortal application

@@ -29,12 +29,12 @@ I wish I’d taken more photos but after much de-nailing, planing, cutting, dril
 
 [![Bench1](/content/uploads/2014/12/Bench1.jpg)](/content/uploads/2014/12/Bench1.jpg)
 
-<div class="wp-caption alignnone" id="attachment_2227" style="width: 637px">[![Bench2](/content/uploads/2014/12/Bench2.jpg)](/content/uploads/2014/12/Bench2.jpg)After gluing and screwing the top planks down I used a belt sander to flatten and smooth the top. The screw holes were filled with plugs cut out of Rimu using a [plug cutter](http://www.amazon.com/gp/product/B0014A450G/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B0014A450G&linkCode=as2&tag=blogrhysgoodw-20&linkId=KAOLZDPSJ5N3Y6PP)![](https://ir-na.amazon-adsystem.com/e/ir?t=blogrhysgoodw-20&l=as2&o=1&a=B0014A450G)  
+[![Bench2](/content/uploads/2014/12/Bench2.jpg)](/content/uploads/2014/12/Bench2.jpg)After gluing and screwing the top planks down I used a belt sander to flatten and smooth the top. The screw holes were filled with plugs cut out of Rimu using a [plug cutter](http://www.amazon.com/gp/product/B0014A450G/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B0014A450G&linkCode=as2&tag=blogrhysgoodw-20&linkId=KAOLZDPSJ5N3Y6PP)![](https://ir-na.amazon-adsystem.com/e/ir?t=blogrhysgoodw-20&l=as2&o=1&a=B0014A450G)  
 .
 
-</div><div class="wp-caption alignnone" id="attachment_2228" style="width: 657px">[![Bench3](/content/uploads/2014/12/Bench3.jpg)](/content/uploads/2014/12/Bench3.jpg)The bench was coated twice with a basic decking oil to protect it.
+[![Bench3](/content/uploads/2014/12/Bench3.jpg)](/content/uploads/2014/12/Bench3.jpg)The bench was coated twice with a basic decking oil to protect it.
 
-</div>[![Bench4](/content/uploads/2014/12/Bench4.jpg)](/content/uploads/2014/12/Bench4.jpg)
+[![Bench4](/content/uploads/2014/12/Bench4.jpg)](/content/uploads/2014/12/Bench4.jpg)
 
 [![Bench5](/content/uploads/2014/12/Bench5.jpg)](/content/uploads/2014/12/Bench5.jpg)
 

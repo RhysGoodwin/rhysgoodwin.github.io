@@ -96,4 +96,4 @@ If you have any questions ask in the comments and let me know if you want more s
 
 Here’s the zip file which contains the script structure and code.
 
-[ RGFrameWork (1109 downloads) ](https://blog.rhysgoodwin.com/download/2457/ "Version 0.1")
+[ RGFrameWork (1109 downloads) ](/content/uploads/downloads/2010/12/RGFrameWork-0.1.zip)

@@ -29,7 +29,7 @@ Using oscam as a system service also overcomes the issue that some people have f
 
 [![](/content/uploads/2011/06/ConfigTool.jpg "Config Form")](/content/uploads/2011/06/ConfigTool.jpg)
 
-<span style="text-decoration: underline;">Version History &amp; Changes</span>
+**Changes**
 
 0.3.5.0 – Current version
 
@@ -49,5 +49,5 @@ Using oscam as a system service also overcomes the issue that some people have f
 Requires .NET 2.0
 
 Enjoy.
-
-[ oscamSVC (5687 downloads) ](https://blog.rhysgoodwin.com/download/2463/ "Version 0.3.5.0")
+### Download
+[ oscamSVC "Version 0.3.5.0" ](/content/uploads/downloads/2011/06/oscamsvc.exe)

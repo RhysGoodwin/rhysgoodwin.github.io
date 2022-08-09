@@ -32,4 +32,5 @@ Just drop the **VieraControl** folder within the zip file into the Eventghost pl
 
 Enjoy.
 
-[ VieraControl (1146 downloads) ](https://blog.rhysgoodwin.com/download/2469/ "Version 0.0.2")
+#### Download
+[ VieraControl  ](/content/uploads/downloads/2014/11/VieraControl0.0.2.zip "Version 0.0.2")

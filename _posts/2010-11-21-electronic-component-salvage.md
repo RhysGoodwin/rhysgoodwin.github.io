@@ -25,7 +25,7 @@ I needed to salvage a few electronic components off some old boards and since la
 
 I use a heat gun to melt the solder then a quick tap on the bench and the components just start falling off!
 
-<iframe allowfullscreen="" frameborder="0" height="315" loading="lazy" src="https://www.youtube.com/embed/b0Rl2RWvrQc" width="420"></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vBjPH3BQWrU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 **Tools Used**
 

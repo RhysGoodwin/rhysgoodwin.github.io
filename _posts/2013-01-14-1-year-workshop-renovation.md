@@ -31,11 +31,11 @@ The old garage which is 3.6m x 7.2m was built at the same time as the house in 1
 
 [![](/content/uploads/2012/11/Workshop11.jpg "Workshop11")](/content/uploads/2012/11/Workshop11.jpg)
 
-<div class="wp-caption alignnone" id="attachment_1823" style="width: 586px">[![](/content/uploads/2012/11/Workshop21.jpg "Workshop21")](/content/uploads/2012/11/Workshop21.jpg)Inside, looking out through the carport. Before starting the project.
+[![](/content/uploads/2012/11/Workshop21.jpg "Workshop21")](/content/uploads/2012/11/Workshop21.jpg)Inside, looking out through the carport. Before starting the project.
 
-</div><div class="wp-caption alignnone" id="attachment_1822" style="width: 586px">[![](/content/uploads/2012/11/Workshop31.jpg "Workshop31")](/content/uploads/2012/11/Workshop31.jpg)The old workbench
+[![](/content/uploads/2012/11/Workshop31.jpg "Workshop31")](/content/uploads/2012/11/Workshop31.jpg)The old workbench
 
-</div>My initial intention was just to replace the rotten framing and line the interior with ply. Water had been running under the door when it rained heavily and would flow to one side. Consequently, the bottom plate and the first ~150mm of the most of the studs down one side had pretty bad rot. Water had been coming in the top and around the sides of the window on the back wall resulting in yet more rot. The right-hand side (which has the side door on it) was pretty solid.
+My initial intention was just to replace the rotten framing and line the interior with ply. Water had been running under the door when it rained heavily and would flow to one side. Consequently, the bottom plate and the first ~150mm of the most of the studs down one side had pretty bad rot. Water had been coming in the top and around the sides of the window on the back wall resulting in yet more rot. The right-hand side (which has the side door on it) was pretty solid.
 
 [![](/content/uploads/2012/11/WorkshopRot21.jpg "WorkshopRot21")](/content/uploads/2012/11/WorkshopRot21.jpg)
 
@@ -61,9 +61,9 @@ The first step was to clear out the bottom plate. I used a couple of the redwood
 
 [![](/content/uploads/2012/11/BottomPlate50.jpg "Bottom Plate 50")](/content/uploads/2012/11/BottomPlate50.jpg)
 
-<div class="wp-caption alignnone" id="attachment_1737" style="width: 665px">[![](/content/uploads/2012/11/BottomPlate60.jpg "Bottom Plate 60")](/content/uploads/2012/11/BottomPlate60.jpg)Old bottom plate all cleared out
+[![](/content/uploads/2012/11/BottomPlate60.jpg "Bottom Plate 60")](/content/uploads/2012/11/BottomPlate60.jpg)Old bottom plate all cleared out
 
-</div>[![](/content/uploads/2012/11/BottomPlate70.jpg "Bottom Plate 70")](/content/uploads/2012/11/BottomPlate70.jpg)
+[![](/content/uploads/2012/11/BottomPlate70.jpg "Bottom Plate 70")](/content/uploads/2012/11/BottomPlate70.jpg)
 
 The next step was to put in the new bottom plate using dynabolts and with a strip of damp-proof course to prevent moisture in the concrete slab from being absorbed into the wood.
 
@@ -149,19 +149,19 @@ Of course before I could start any of the lining I had to consider wiring – po
 
 [![](/content/uploads/2012/11/Wiring10.jpg "Wiring10")](/content/uploads/2012/11/Wiring10.jpg)
 
-<div class="wp-caption alignnone" id="attachment_1784" style="width: 666px">[![](/content/uploads/2012/11/Wiring20.jpg "Wiring20")](/content/uploads/2012/11/Wiring20.jpg)Did I go overboard on the Ethernet?
+[![](/content/uploads/2012/11/Wiring20.jpg "Wiring20")](/content/uploads/2012/11/Wiring20.jpg)Did I go overboard on the Ethernet?
 
-</div>[![](/content/uploads/2012/11/Wiring30.jpg "Wiring30")](/content/uploads/2012/11/Wiring30.jpg)
+[</div>[]![](/content/uploads/2012/11/Wiring30.jpg "Wiring30")](/content/uploads/2012/11/Wiring30.jpg)
 
 [![](/content/uploads/2012/11/Wiring40.jpg "Wiring40")](/content/uploads/2012/11/Wiring40.jpg)
 
-<div class="wp-caption alignnone" id="attachment_1788" style="width: 665px">[![](/content/uploads/2012/11/ceiling10.jpg "ceiling10")](/content/uploads/2012/11/ceiling10.jpg)I had to add additional framing to support the ceiling panels
+[![](/content/uploads/2012/11/ceiling10.jpg "ceiling10")](/content/uploads/2012/11/ceiling10.jpg)I had to add additional framing to support the ceiling panels
 
-</div>[![](/content/uploads/2012/11/Lighting20.jpg "Lighting 20")](/content/uploads/2012/11/Lighting20.jpg)
+[![](/content/uploads/2012/11/Lighting20.jpg "Lighting 20")](/content/uploads/2012/11/Lighting20.jpg)
 
-<div class="wp-caption alignnone" id="attachment_1789" style="width: 667px">[![](/content/uploads/2012/11/Lighting10.jpg "Lighting10")](/content/uploads/2012/11/Lighting10.jpg)696 Watts of fluorescent lighting. Switched in 3 sets of 2.
+[![](/content/uploads/2012/11/Lighting10.jpg "Lighting10")](/content/uploads/2012/11/Lighting10.jpg)696 Watts of fluorescent lighting. Switched in 3 sets of 2.
 
-</div>And finally on to the wall lining and switchboard.
+And finally on to the wall lining and switchboard.
 
 [![](/content/uploads/2012/11/Lining10.jpg "Lining10")](/content/uploads/2012/11/Lining10.jpg)
 

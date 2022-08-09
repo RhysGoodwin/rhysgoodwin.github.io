@@ -22,7 +22,8 @@ I’ve just had VDSL2 installed at home and have been setting up the new Telecom
 
 I haven’t been able to find the CLI guide PDF for this model yet but the command set is largely the same. One notable exception is the conditional DNS forwarding configuration which has given me some trouble. The TG582n had a set of commands for ‘DNS routing’ e.g.
 
-<span style="color: #ff0000;">\*Update\*</span>I’ve now got a copy of the manual. linked below (Thanks Dennis and Phill)
+**Update**  
+I’ve now got a copy of the manual. linked below (Thanks Dennis and Phill)
 
 **dns server route list** and **dns server route add.**
 
@@ -63,6 +64,7 @@ Happy Forwarding!
 
 Here’s the CLI Guide for the TG589vn:
 
-[ TG589vn-v2CLI (1288 downloads) ](https://blog.rhysgoodwin.com/download/2467/ "Version 1.0")Also for the TG852n
+[ TG589vn-v2CLI.zip ](/content/uploads/downloads/2014/02/TG589vn-v2CLI.zip "Version 1.0")   
+Also for the TG852n
 
-[ TG582n\_CLI\_Guide\_v1.0\_public (2853 downloads) ](https://blog.rhysgoodwin.com/download/2465/ "Version 1.0")
+[ TG582n\_CLI\_Guide\_v1.0\_public.pdf  ](/content/uploads/downloads/2013/07/TG582n_CLI_Guide_v1.0_public.pdf "Version 1.0")

@@ -23,7 +23,7 @@ tags:
 
 A couple of things I came accross with iLO today:
 
-[![](/content/uploads/2011/04/ILOFlash-300x206.jpg "ILOFlash")](/content/uploads/2011/04/ILOFlash.jpg)
+[![](/content/uploads/2011/04/ILOFlash.jpg "ILOFlash")](/content/uploads/2011/04/ILOFlash.jpg)
 
 **Plain Firmware Image .bin Files**
 

@@ -32,11 +32,11 @@ In this case the idea stemmed from the thought that eventually I would convert t
 
 First step – Get the dimensions of the machine and create designs in Sketch-up.
 
-<div class="wp-caption alignnone" id="attachment_2087" style="width: 660px">[![TrayMold](/content/uploads/2014/10/TrayMold.jpg)](/content/uploads/2014/10/TrayMold.jpg)Mould design for the fibreglass tray (Inverse of the final product)
+[![TrayMold](/content/uploads/2014/10/TrayMold.jpg)](/content/uploads/2014/10/TrayMold.jpg)Mould design for the fibreglass tray (Inverse of the final product)
 
-</div><div class="wp-caption alignnone" id="attachment_2086" style="width: 555px">[![BenchDesign](/content/uploads/2014/10/BenchDesign.jpg)](/content/uploads/2014/10/BenchDesign.jpg)Overall bench design
+[![BenchDesign](/content/uploads/2014/10/BenchDesign.jpg)](/content/uploads/2014/10/BenchDesign.jpg)Overall bench design
 
-</div>I decided to make the fibreglass tray first so that I could adjust the bench design to accommodate for any inaccuracies in the fibreglass which once set can’t be adjusted.
+I decided to make the fibreglass tray first so that I could adjust the bench design to accommodate for any inaccuracies in the fibreglass which once set can’t be adjusted.
 
 The mould was made from:
 
@@ -96,7 +96,8 @@ As expected there are lots of moulding artefacts but overall I’m very happy wi
 
 Now on to the bench itself…
 
-The bench design is based on the same torsion box design as my <span style="text-decoration: underline;">[main workshop bench](https://blog.rhysgoodwin.com/home-diy/workshop-and-workbench-update/).</span> Pretty overkill but I still had a lot of plywood offcuts from the workshop restoration that I needed to use up. There are castors on each of the four corners rated at 280Kg each. The centre foot jacks down with three 16mm bolts.
+
+The bench design is based on the same torsion box design as my [main workshop bench](/home-diy/workshop-and-workbench-update/). Pretty overkill but I still had a lot of plywood offcuts from the workshop restoration that I needed to use up. There are castors on each of the four corners rated at 280Kg each. The centre foot jacks down with three 16mm bolts.
 
 [![Bench1](/content/uploads/2014/10/Bench1.jpg)](/content/uploads/2014/10/Bench1.jpg)
 
@@ -124,15 +125,15 @@ And now for the best part…the install.
 
 [![Finals1](/content/uploads/2014/10/Finals1.jpg)](/content/uploads/2014/10/Finals1.jpg)
 
-<div class="wp-caption alignleft" id="attachment_2088" style="width: 576px">[![Finals5](/content/uploads/2014/10/Finals5.jpg)](/content/uploads/2014/10/Finals5.jpg)On the left: Sieg SX3 milling machine. On the right: Sieg SC4 lathe
+[![Finals5](/content/uploads/2014/10/Finals5.jpg)](/content/uploads/2014/10/Finals5.jpg)On the left: Sieg SX3 milling machine. On the right: Sieg SC4 lathe
 
-</div>**Thanks**
+**Thanks**
 
 Special thanks to my wonderful wife who painted the bench, to Simon for the help and use of the engine crane. And to Andy for the offer of the engine crane. To Chris at [www.sieg-machines.co.nz](http://www.sieg-machines.co.nz) for all the help. And to Adam who transported the machine.
 
 And a plug for my favourite local businesses:
 
-<span style="text-decoration: underline;">[NZ Fibreglass](http://www.nzfibreglass.co.nz/)</span>, always with helpful advice and <span style="text-decoration: underline;">[Hill Lumber](http://www.hilllumber.co.nz/)</span> who have the best lumber prices around
+[NZ Fibreglass](http://www.nzfibreglass.co.nz/), always with helpful advice and [Hill Lumber](http://www.hilllumber.co.nz/) who have the best lumber prices around
 
 **Conclusion**
 

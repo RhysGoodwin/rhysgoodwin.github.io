@@ -23,9 +23,9 @@ tags:
     - sso
 ---
 
-<span style="text-decoration: underline;"><span style="color: #ff0000;">**Updates**</span></span>
+**Updates**
 
-<span style="color: #333333;">**-14/01/2013 – Workaround for iPads and SSO!**</span>  
+**-14/01/2013 – Workaround for iPads and SSO!**</span>  
 Rohan writes to tell us that:
 
 “If you activate Touch in your Org and set touch to be used for Browser access then an iPad will via Safari use the mobile touch interface. You’ll need to have http redirect set, and (As below) you are limited to the touch “app” so no chatter app or dashboards app.  
@@ -33,11 +33,11 @@ That said, dashboards are meant to be coming to touch shortly so perhaps touch v
 
 Cheers Rohan!
 
-<span style="color: #000000;"><span style="color: #333333;">**– 15/10/2012 – ADFS 2.0 / SalesForce + iPad/Safari Working**!</span><span style="text-decoration: underline;">  
+**– 15/10/2012 – ADFS 2.0 / SalesForce + iPad/Safari Working**!
 </span>SalesForce have added a new option to change the SAML binding method from HTTP POST to HTTP REDIRECT. Using HTTP REDIRECT seems to fix the issue with ipad/Safari and ADFS 2.0. You can find this in the SSO settings.  
 </span>
 
-<span class="Apple-style-span" style="font-size: 18px; font-weight: bold;">**Intro**</span>
+## Intro
 
 In my [last post](https://blog.rhysgoodwin.com/security/saml-websso-federation-made-easy/) I went over the basic concept of federation using SAML 2.0, today I’ll show you how to configure single sign-on for SalesForce using ADFS 2.0. This is a really nice solution because it’s easy to set up and doesn’t cost you anything except the Windows 2008 OS licence.
 
@@ -45,9 +45,8 @@ ADFS 2.0 is Microsoft’s answer to federation – it includes their own impleme
 
 If you don’t feel you have a good grasp of SAML 2.0 I suggest that you set up ADFS 2.0 (as IdP) and Shibboleth (as SP) in a lab environment. There’s no better way to learn about a particular technology than to interface Microsoft’s implementation with its open source counterpart! There’s a great [MSDN blog post](http://blogs.msdn.com/b/card/archive/2010/06/21/a-quick-walkthrough-setting-up-ad-fs-saml-federation-with-a-shibboleth-sp.aspx) that walks you through the set up. I really learnt a lot by doing this.
 
-<iframe frameborder="0" height="240" loading="lazy" marginheight="0" marginwidth="0" scrolling="no" src="https://rcm.amazon.com/e/cm?lt1=_blank&bc1=FFFFFF&IS1=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=blogrhysgoodw-20&o=1&p=8&l=as1&m=amazon&f=ifr&ref=tf_til&asins=0735640599" style="width: 120px; height: 240px;" width="320"></iframe>
 
-#### **Overview**
+#### Overview
 
 Let’s first take a look at an overview of the process then we’ll dive into the configuration. The diagram below shows the process for an IdP-initiated login into SalesForce – later we’ll look at SP-initiated login.
 
@@ -57,7 +56,7 @@ Let’s first take a look at an overview of the process then we’ll dive into t
 2. ADFS returns a SAML assertion to the user’s browser
 3. The browser automatically submits the assertion to SalesForce who logs the user in
 
-#### **Install**
+#### Install
 
 - Start with Windows Server 2008 \[R2\] – Domain Joined
 - Create a friendly DNS name for ADFS and point it to your adfs server. e.g **adfs.testzone.local**
@@ -80,7 +79,7 @@ For more info on Kerberos SPNs see my [*Active Directory and Kerberos SPNs Made 
 
 To build a federation between two parties we need to establish a trust by exchanging some metadata. The metadata for our ADFS 2.0 instance is entered manually into the SalesForce configuration. SalesForce metadata is downloaded as an XML file which ADFS 2.0 can consume.
 
-**SalesForce Configuration**
+### SalesForce Configuration
 
 In the ADFS 2.0 MMC snap-in select the certificates node and double click the token-signing certificate to view it.
 

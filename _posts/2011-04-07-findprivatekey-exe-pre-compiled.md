@@ -25,4 +25,4 @@ I compiled it my self this afternoon. At least it’s better than downloading it
 
 **Requires .NET 3.5**
 
-[ FindPrivateKey.exe (20726 downloads) ](https://blog.rhysgoodwin.com/download/2461/ "Version 0.0.0.0")
+[ FindPrivateKey.exe ](/content/uploads/downloads/2011/04/FindPrivateKey.exe)

@@ -32,11 +32,11 @@ This method comes with 2 warnings (The later you should take seriously)
 
 **Part 1**
 
-<iframe allowfullscreen="" frameborder="0" height="315" loading="lazy" src="https://www.youtube.com/embed/vHtiRCVfUPM" width="420"></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vHtiRCVfUPM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 **Part 2**
 
-<iframe allowfullscreen="" frameborder="0" height="315" loading="lazy" src="https://www.youtube.com/embed/vHbzrR5jD6M" width="420"></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vHbzrR5jD6M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Here are some shots of the printer modifications viewed from the rear of the printer. It’s a bit of a pain to get a hacksaw blade in and cut the carriage but fortunately you only have to cut it in 2 places.
 

@@ -30,8 +30,8 @@ Dynamic DNS updates not happening at boot or when doing an ipconfig release/rene
 ***Important** Internet Protocol version 6 (IPv6) is a mandatory part of Windows Vista and Windows Server 2008 and newer versions. We do not recommend that you disable IPv6 or its components. If you do, some Windows components may not function. We recommend that you use “Prefer IPv4 over IPv6” in prefix policies instead of disabling IPV6.*
 
 ```
-<strong>Policy:</strong> Computer\Polices\Administrative Templates\Network\IPv6 Configuration.
-<strong>Registry:</strong> HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters\DisabledComponents(DWORD)=0xff
+Policy: Computer\Polices\Administrative Templates\Network\IPv6 Configuration
+Registry: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters\DisabledComponents(DWORD)=0xff
 ```
 
 [![](/content/uploads/2018/07/IPv6GPO.png)](/content/uploads/2018/07/IPv6GPO.png)

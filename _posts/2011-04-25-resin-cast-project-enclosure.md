@@ -20,7 +20,7 @@ tags:
     - resin
 ---
 
-Project boxes available off the shelf always seem to be *just* too smahttps://blog.rhysgoodwin.com/wp-admin/post.php?post=973&amp;action=edit&amp;message=1ll or way too big! This is especially true here in New Zealand where the options between JayCar and SurplusTronics are fairly limited. I needed a specific size to house a project I’m working on so I decided to cast my own in [Polyester Resin](http://www.amazon.com/gp/product/B0018N9E3M/ref=as_li_tf_tl?ie=UTF8&tag=blogrhysgoodw-20&linkCode=as2&camp=217145&creative=399373&creativeASIN=B0018N9E3M)![](https://www.assoc-amazon.com/e/ir?t=blogrhysgoodw-20&l=as2&o=1&a=B0018N9E3M&camp=217145&creative=399373). I hope the details which follow will prove helpful.
+Project boxes available off the shelf always seem to be just too small or way too big! This is especially true here in New Zealand where the options between JayCar and SurplusTronics are fairly limited. I needed a specific size to house a project I’m working on so I decided to cast my own in [Polyester Resin](http://www.amazon.com/gp/product/B0018N9E3M/ref=as_li_tf_tl?ie=UTF8&tag=blogrhysgoodw-20&linkCode=as2&camp=217145&creative=399373&creativeASIN=B0018N9E3M)![](https://www.assoc-amazon.com/e/ir?t=blogrhysgoodw-20&l=as2&o=1&a=B0018N9E3M&camp=217145&creative=399373). I hope the details which follow will prove helpful.
 
 [![](/content/uploads/2011/04/WorkbenchSetup.jpg "Workbench Setup")](/content/uploads/2011/04/WorkbenchSetup.jpg)
 

@@ -39,9 +39,9 @@ The slot in the brass screw was cut on the mill with a [2mm end mill.](http://ww
 
 [![MakingHammer2](/content/uploads/2014/11/MakingHammer2.jpg)](/content/uploads/2014/11/MakingHammer2.jpg)
 
-<div class="wp-caption alignnone" id="attachment_2187" style="width: 978px">[![MakingHammer5](/content/uploads/2014/11/MakingHammer5.jpg)](/content/uploads/2014/11/MakingHammer5.jpg)Using a simple mandrel to make the locating pins out of 3mm stainless steel screws
+[![MakingHammer5](/content/uploads/2014/11/MakingHammer5.jpg)](/content/uploads/2014/11/MakingHammer5.jpg)Using a simple mandrel to make the locating pins out of 3mm stainless steel screws
 
-</div>[![MakingHammer3](/content/uploads/2014/11/MakingHammer3.jpg)](/content/uploads/2014/11/MakingHammer3.jpg)
+[![MakingHammer3](/content/uploads/2014/11/MakingHammer3.jpg)](/content/uploads/2014/11/MakingHammer3.jpg)
 
 [![MakingHammer4](/content/uploads/2014/11/MakingHammer4.jpg)](/content/uploads/2014/11/MakingHammer4.jpg)
 

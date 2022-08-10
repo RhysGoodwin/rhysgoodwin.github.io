@@ -2,7 +2,7 @@
 id: 1236
 title: 'ADFS 2.0 in Forest Trust Environment'
 date: '2011-10-11T19:52:42+13:00'
-author: RhysGoodwin
+
 excerpt: 'ADFS 2.0 Working in a Cross Forest, Forest Trust, or Multi-Domain Environment.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=1236'

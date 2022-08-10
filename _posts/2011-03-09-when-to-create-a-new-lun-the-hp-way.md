@@ -2,7 +2,7 @@
 id: 1063
 title: 'When to Create a New LUN (The hp way!)'
 date: '2011-03-09T18:37:13+13:00'
-author: RhysGoodwin
+
 excerpt: 'I had a good laugh when I came across this flow chart in hp''s LeftHand SAN / VMWare vSphere 4 guide.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=1063'

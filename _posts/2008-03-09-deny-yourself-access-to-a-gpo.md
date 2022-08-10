@@ -2,7 +2,7 @@
 id: 75
 title: 'Deny yourself access to a Group Policy'
 date: '2008-03-09T22:17:29+13:00'
-author: RhysGoodwin
+
 excerpt: 'How to fix permissions on group policy objects. Even if you''ve accidentally denied your self access! '
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=75'

@@ -2,7 +2,7 @@
 id: 1378
 title: 'Service Wrapper for oscam'
 date: '2011-06-25T16:55:17+13:00'
-author: RhysGoodwin
+
 excerpt: 'Windows service wrapper for oscam.  '
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=1378'

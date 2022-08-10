@@ -2,7 +2,7 @@
 id: 2176
 title: 'Brass Hammer with Oak Handle'
 date: '2014-11-30T20:07:21+13:00'
-author: RhysGoodwin
+
 excerpt: 'A small brass hammer with oak handle. Made from scratch.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=2176'

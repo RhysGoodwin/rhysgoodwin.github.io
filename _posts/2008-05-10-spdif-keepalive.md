@@ -2,7 +2,7 @@
 id: 29
 title: 'SPDIF KeepAlive for Home Theatre PC'
 date: '2008-05-10T15:20:34+13:00'
-author: RhysGoodwin
+
 excerpt: 'Free SPDIF Keep-alive utility. Are you getting a delay when you use SPDIF from your PC to your receiver or Unlock message on your Sony receiver? Here is the fix. Free Download!'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=29'
@@ -47,10 +47,7 @@ After much searching I did find a few other people with the same problem but no 
 
 Hope this is helpful for others, leave comments for bugs / feature requests etc
 
-###   
-
-
-<span style="text-decoration: underline;">Version History</span>
+### Version History
 
 Version 1.0
 
@@ -65,7 +62,9 @@ Version 1.2 (Current Version)
 - Fixed auto play on startup
 - Added auto-restart option
 
-[ SPDIFKeepAlive (9825 downloads) ](https://blog.rhysgoodwin.com/download/2453/)(.Net 2.0 Required)
+### Downloads 
+
+[ SPDIFKeepAlive-1.2.exe ](/content/uploads/downloads/2017/03/SPDIFKeepAlive-1.2.exe)(.Net 2.0 Required)
 
 Source Code – Feel free to do what you like with this (no license)  
-[ SPDIF Keep Alive Source (1464 downloads) ](https://blog.rhysgoodwin.com/download/2475/)
+[ SPDIFKeepAlive-Source-v1.2.zip](/content/uploads/downloads/2017/03/SPDIFKeepAlive-Source-v1.2.zip)

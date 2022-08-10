@@ -2,7 +2,7 @@
 id: 1627
 title: 'Auto-download [Kiwi]bank Transactions with Selenium'
 date: '2012-04-07T19:47:05+13:00'
-author: RhysGoodwin
+
 excerpt: 'How to automate downloading of transaction files from your bank. Or another browser task for that matter. '
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=1627'

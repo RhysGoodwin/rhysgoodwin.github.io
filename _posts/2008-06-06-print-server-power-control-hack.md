@@ -2,7 +2,7 @@
 id: 94
 title: 'Print Server Power Control Hack'
 date: '2008-06-06T22:52:57+13:00'
-author: RhysGoodwin
+
 excerpt: 'How to modify a parallel print server to switch AC devices (e.g. Lamps, Monitors etc). Including c# .net source code.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=94'
@@ -65,13 +65,13 @@ Thanks to all have contacted me and contributed!
 
 <span style="color: #ff0000;">**\* EDIT \***</span>
 
-[![Print Server PCB](/content/uploads/2009/03/printservertop-1024x702.jpg "Print Server PCB")](/content/uploads/2009/03/printservertop.jpg)
+[![Print Server PCB](/content/uploads/2009/03/printservertop.jpg "Print Server PCB")](/content/uploads/2009/03/printservertop.jpg)
 
 [![Printer Server PCB (Bottom)](/content/uploads/2009/03/printservebottom.jpg "Printer Server PCB (Bottom)")](/content/uploads/2009/03/printservebottom.jpg)
 
 The IC requires +5Volts and it is also nessecicary to connect +5volts to pins 10, 13 and 15. It wasn’t hard to find a +5v point on the print server board.
 
-[![](/content/uploads/2009/03/printserver5volts-828x1024.jpg "IC Connected to 5volts")](/content/uploads/2009/03/printserver5volts.jpg)
+[![](/content/uploads/2009/03/printserver5volts.jpg "IC Connected to 5volts")](/content/uploads/2009/03/printserver5volts.jpg)
 
 [![74LS04](/content/uploads/2009/03/74ls04.jpg "74LS04")](/content/uploads/2009/03/74ls04.jpg)
 
@@ -106,5 +106,23 @@ Call the output method specifying the port as ipaddress:port and the output valu
 **<span style="color: #ff0000;">IpPortAccess.Output(192.168.1.10:9100,21);</span>**
 
 ```
-<span style="font-size: xx-small; color: #0000ff;"><strong>using System.Net; using System.Net.Sockets; using System; using System.Collections.Generic; using System.Text; namespace PowerControl { class IpPortAccess { public static void Output(string port,int value) { string[] ipport = port.Split(new char[] { ':' }); string _ip = ipport[0]; int _port = Convert.ToInt32(ipport[1]); Socket soc = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp); soc.Connect(_ip,_port); byte[] sendData = new byte[1]; sendData[0] = Convert.ToByte(value); soc.Send(sendData); soc.Close(); } } } </strong></span>
+using System.Net;
+using System.Net.Sockets;
+using System; 
+using System.Collections.Generic;
+using System.Text;
+namespace PowerControl 
+{ class IpPortAccess 
+    { public static void Output(string port,int value) 
+        { 
+            string[] ipport = port.Split(new char[] { ':' }); 
+            string _ip = ipport[0]; int _port = Convert.ToInt32(ipport[1]); 
+            Socket soc = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp); soc.Connect(_ip,_port); 
+            byte[] sendData = new byte[1];
+            sendData[0] = Convert.ToByte(value);
+            soc.Send(sendData);
+            soc.Close(); 
+            } 
+       }
+} 
 ```

@@ -2,7 +2,7 @@
 id: 2085
 title: 'Milling Machine Bench and Workshop Update'
 date: '2014-10-14T00:03:16+13:00'
-author: RhysGoodwin
+
 excerpt: 'A bench I built for a milling machine. Including a fibreglass swarf tray.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=2085'

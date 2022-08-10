@@ -2,7 +2,7 @@
 id: 1075
 title: 'Fingerprint Logon with hp ProtectTools -Fixed'
 date: '2011-03-12T15:39:07+13:00'
-author: RhysGoodwin
+
 excerpt: 'I had issues getting Windows fingerprint logon working with HP Protect tools, here are the steps I took to get it working.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=1075'

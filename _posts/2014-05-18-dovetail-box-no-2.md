@@ -2,7 +2,7 @@
 id: 2048
 title: 'Dovetail Box No.2'
 date: '2014-05-18T13:05:24+13:00'
-author: RhysGoodwin
+
 excerpt: 'My second dovetail box.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=2048'

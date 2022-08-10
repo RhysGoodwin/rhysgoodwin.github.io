@@ -2,7 +2,7 @@
 id: 1562
 title: 'OpenAM &#8211; Can&#8217;t Log on to Admin Console'
 date: '2011-11-08T17:59:18+13:00'
-author: RhysGoodwin
+
 excerpt: 'FIXED:Unable to login to OpenAM/OpenSSO admin console after installation and config'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=1562'

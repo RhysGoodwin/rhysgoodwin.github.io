@@ -2,7 +2,7 @@
 id: 160
 title: 'MOSS 2007 SSRS WMI provider error'
 date: '2009-03-22T23:37:32+13:00'
-author: RhysGoodwin
+
 excerpt: '“Unable to connect to the Report Server WMI provider“. Another possible cause / Fix for this error.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=160'

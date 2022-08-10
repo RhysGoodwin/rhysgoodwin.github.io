@@ -2,7 +2,7 @@
 id: 665
 title: 'Vmware Player Unity (Trackpad Scrolling Works!)'
 date: '2010-10-30T10:53:22+13:00'
-author: RhysGoodwin
+
 excerpt: 'VMWare Player Unity and trackpad scrolling within guest VM.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=665'

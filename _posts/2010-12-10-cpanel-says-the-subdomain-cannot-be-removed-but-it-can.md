@@ -2,7 +2,7 @@
 id: 887
 title: 'cPanel Says the Subdomain Cannot be Removed. but it can!'
 date: '2010-12-10T15:45:06+13:00'
-author: RhysGoodwin
+
 excerpt: 'An easy way to get rid of subdomains when cPanel says you can''t!  Do you get this error: "Sorry, the subdomain cannot be removed because it is linked to the addon domain"?'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=887'

@@ -2,7 +2,7 @@
 id: 582
 title: 'Samsung LCD Stuck on Australia after Firmware Upgrade'
 date: '2010-10-01T18:50:43+13:00'
-author: RhysGoodwin
+
 excerpt: 'Samsung LCD country setting is locked to the wrong country.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=582'

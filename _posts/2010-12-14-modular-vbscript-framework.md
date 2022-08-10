@@ -2,7 +2,7 @@
 id: 914
 title: 'Modular vbScript Framework'
 date: '2010-12-14T18:36:23+13:00'
-author: RhysGoodwin
+
 excerpt: 'A simple modular vbscript framework which allows you to re-use code and maintain modules in isolation.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=914'

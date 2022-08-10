@@ -2,7 +2,7 @@
 id: 2026
 title: 'Learning to Make Hand Cut Dovetails'
 date: '2014-04-21T19:01:42+13:00'
-author: RhysGoodwin
+
 excerpt: 'Learning to make hand cut dovetails. It''s not too hard.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=2026'

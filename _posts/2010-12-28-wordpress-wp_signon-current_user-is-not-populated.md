@@ -2,7 +2,7 @@
 id: 952
 title: 'WordPress: wp_signon() &#8211; $current_user is not populated'
 date: '2010-12-28T11:09:23+13:00'
-author: RhysGoodwin
+
 excerpt: 'When using the WordPress wp_signon() function the global user variables such as $current_user and $user_ID don''t get populated until after the page has refreshed.  Here''s how to work around it.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=952'

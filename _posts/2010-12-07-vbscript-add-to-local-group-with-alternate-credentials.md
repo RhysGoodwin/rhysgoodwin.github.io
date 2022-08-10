@@ -2,7 +2,7 @@
 id: 867
 title: 'vbScript &#8211; Add to Local Group with Alternate Credentials'
 date: '2010-12-07T18:33:41+13:00'
-author: RhysGoodwin
+
 excerpt: "A vbScript snippet to add a domain group to a local group using alternate credentials.\r\n"
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=867'

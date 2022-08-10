@@ -2,7 +2,7 @@
 id: 154
 title: 'Ipaq Auto-wake for in-car Applications'
 date: '2009-03-21T23:31:09+13:00'
-author: RhysGoodwin
+
 excerpt: 'An easy to build DC/DC 5 Volt power supply. (Version 2) Great for car based projects. GPS , Ipaq, Car PC.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=154'

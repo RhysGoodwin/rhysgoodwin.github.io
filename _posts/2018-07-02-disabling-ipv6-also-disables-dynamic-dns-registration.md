@@ -2,7 +2,8 @@
 id: 2432
 title: 'Disabling IPv6 Also disables Dynamic DNS Registration'
 date: '2018-07-02T16:30:42+13:00'
-author: RhysGoodwin
+
+author_profile: true
 excerpt: 'In Windows 7 and Windows 10 disabling IPv6 also disables dynamic DNS registration. I guess it''s a bug?'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=2432'

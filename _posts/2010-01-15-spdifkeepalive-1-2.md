@@ -2,7 +2,7 @@
 id: 326
 title: 'SPDIFKeepAlive 1.2'
 date: '2010-01-15T11:20:53+13:00'
-author: RhysGoodwin
+
 excerpt: 'SPDIFKeepAlive Updated! New Version 1.2!'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=326'

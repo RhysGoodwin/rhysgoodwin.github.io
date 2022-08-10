@@ -2,7 +2,7 @@
 id: 780
 title: 'Electronic Component Salvage'
 date: '2010-11-21T12:34:19+13:00'
-author: RhysGoodwin
+
 excerpt: 'Video How-to: A quick and easy way to salvage electronic components using a heat gun.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=780'

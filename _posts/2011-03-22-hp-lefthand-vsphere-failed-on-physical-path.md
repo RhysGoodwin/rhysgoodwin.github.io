@@ -2,7 +2,7 @@
 id: 1097
 title: 'HP Lefthand / vSphere: &#8220;failed on physical path&#8221;'
 date: '2011-03-22T00:14:42+13:00'
-author: RhysGoodwin
+
 excerpt: 'VMWare ESX / HP Lefthand - "Failed on physical path" error. "Have you tried turning it off and on?" '
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=1097'

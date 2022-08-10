@@ -2,7 +2,7 @@
 id: 1135
 title: 'SalesForce SSO with ADFS 2.0 &#8211; Everything you need to Know'
 date: '2011-04-04T01:57:14+13:00'
-author: RhysGoodwin
+
 excerpt: "Everything you need to know about setting up SalesForce single sign-on with Microsoft's AD FS 2.0\r\n"
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=1135'

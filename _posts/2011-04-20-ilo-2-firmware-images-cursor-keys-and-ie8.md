@@ -2,7 +2,7 @@
 id: 1301
 title: 'iLO 2 Firmware Images, Cursor Keys and IE8'
 date: '2011-04-20T19:45:26+13:00'
-author: RhysGoodwin
+
 excerpt: 'Where to find .bin firmware images file for HP iLO2 and a workaround for cursor keys not working in iLO remote console.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=1301'

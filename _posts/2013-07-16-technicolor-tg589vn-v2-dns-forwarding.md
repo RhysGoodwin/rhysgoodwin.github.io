@@ -2,7 +2,7 @@
 id: 1956
 title: 'Technicolor TG589vn V2 DNS Forwarding'
 date: '2013-07-16T00:20:28+13:00'
-author: RhysGoodwin
+
 excerpt: 'How to set up conditional DNS forwarding on a Technicolor TG589vn V2 VDSL Router/Modem '
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=1956'

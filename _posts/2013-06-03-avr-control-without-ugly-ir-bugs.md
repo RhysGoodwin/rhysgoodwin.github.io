@@ -2,7 +2,7 @@
 id: 1923
 title: 'AVR Control Without Ugly IR Bugs'
 date: '2013-06-03T22:42:52+13:00'
-author: RhysGoodwin
+
 excerpt: 'A cheap way to get control of your home theater receiver without sticking an ugly IR bug to the outside.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=1923'

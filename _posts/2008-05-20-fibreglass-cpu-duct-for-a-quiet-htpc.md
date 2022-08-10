@@ -2,7 +2,7 @@
 id: 27
 title: 'Fibreglass CPU Duct for a Quiet Home Theatre PC'
 date: '2008-05-20T21:32:59+13:00'
-author: RhysGoodwin
+
 excerpt: 'Build a fibreglass CPU air duct. Fibre glass for newbies! '
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=27'
@@ -26,7 +26,8 @@ I wanted to run the fan at very low RPM while maintaining good air flow across t
 
 I could have hacked a duct together with cardboard and tape but that would been just too easy, besides I wanted to try my hand at some fibre-glassing. After much research, trial and **error** Here are the basic steps I went though.
 
-<span style="text-decoration: underline;">Materials</span> (Fibre glass bare essentials can be had for about NZ$50)
+### Materials  
+Fibre glass bare essentials can be had for about NZ$50
 
 - Polyester resin
 - Methyl ethyl ketone peroxide ([MEKP](http://en.wikipedia.org/wiki/Methyl_ethyl_ketone_peroxide) – The catalyst used to harden the resin)
@@ -111,17 +112,17 @@ The part released reasonably cleanly
 
 …Prime and paint
 
-[![Prime](/content/uploads/2009/03/17primed-1024x768.jpg "Prime")](/content/uploads/2009/03/17primed.jpg)
+[![Prime](/content/uploads/2009/03/17primed.jpg "Prime")](/content/uploads/2009/03/17primed.jpg)
 
 13\. Done!
 
-[![Done](/content/uploads/2009/03/18painted-1024x768.jpg "Done")](/content/uploads/2009/03/18painted.jpg)
+[![Done](/content/uploads/2009/03/18painted.jpg "Done")](/content/uploads/2009/03/18painted.jpg)
 
-[![Thermalright Heatsink](/content/uploads/2009/03/19fansink-1024x768.jpg "Thermalright Heatsink")](/content/uploads/2009/03/19fansink.jpg)
+[![Thermalright Heatsink](/content/uploads/2009/03/19fansink.jpg "Thermalright Heatsink")](/content/uploads/2009/03/19fansink.jpg)
 
-[![Duct Instlled (Far)](/content/uploads/2009/03/19installedfar-1024x768.jpg "Duct Instlled (Far)")](/content/uploads/2009/03/19installedfar.jpg)
+[![Duct Instlled (Far)](/content/uploads/2009/03/19installedfar.jpg "Duct Instlled (Far)")](/content/uploads/2009/03/19installedfar.jpg)
 
-[![Duct Instlled (Near)](/content/uploads/2009/03/20installedclose-1024x768.jpg "Duct Instlled (Near)")](/content/uploads/2009/03/20installedclose.jpg)
+[![Duct Instlled (Near)](/content/uploads/2009/03/20installedclose.jpg "Duct Instlled (Near)")](/content/uploads/2009/03/20installedclose.jpg)
 
 <span style="text-decoration: underline;">Full System Specs</span>
 

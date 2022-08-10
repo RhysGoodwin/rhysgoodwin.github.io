@@ -2,7 +2,7 @@
 id: 244
 title: 'Active Directory and Kerberos SPNs Made Easy!'
 date: '2009-04-07T01:26:18+13:00'
-author: RhysGoodwin
+
 excerpt: 'A very clear description of why (and how) we set Kerberos SPNs in active directory. '
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=244'
@@ -59,13 +59,13 @@ Now lets run the **setspn.exe** tool to manipulate the **ServicePrincipalName** 
 [![Command promt screenshot showing setspn](/content/uploads/2009/04/setspncmd.jpg "setspn.exe")](/content/uploads/2009/04/setspncmd.jpg)
 
 ```
-<pre style="text-align: left;">setspn -a MSSQLSvc/sql1.domain.com domain\SQLSVC
+setspn -a MSSQLSvc/sql1.domain.com domain\SQLSVC
 ```
 
 We will also add **sql1** (without the domain name) in case we want to access the the server without the domain name appended.
 
 ```
-<pre style="text-align: left;">setspn -a MSSQLSvc/sql1 <strong>domain\SQLSVC</strong>
+setspn -a MSSQLSvc/sql1 domain\SQLSVC
 ```
 
 Now run through the scenario again and this time notice that the domain controller will return a ticket that the SQL server service account can read.

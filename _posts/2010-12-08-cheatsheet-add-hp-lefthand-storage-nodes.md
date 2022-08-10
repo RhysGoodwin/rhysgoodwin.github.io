@@ -2,7 +2,7 @@
 id: 874
 title: 'Cheatsheet: Add HP Lefthand Storage Nodes'
 date: '2010-12-08T17:37:19+13:00'
-author: RhysGoodwin
+
 excerpt: 'Cheatsheet: Add new HP Lefthand (StorageWorks P4000) nodes to your iSCSI SAN.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=874'

@@ -2,7 +2,7 @@
 id: 494
 title: 'SetPassword over domain trust fails &#8211; COMException 0x8007202'
 date: '2010-03-02T21:30:36+13:00'
-author: RhysGoodwin
+
 excerpt: 'A different .NET method for setting passwords in an AD environment over LDAP.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=494'

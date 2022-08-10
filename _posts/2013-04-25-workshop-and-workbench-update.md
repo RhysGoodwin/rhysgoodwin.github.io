@@ -2,7 +2,7 @@
 id: 1879
 title: 'Workshop and Workbench Update'
 date: '2013-04-25T20:54:28+13:00'
-author: RhysGoodwin
+
 excerpt: 'As promised and update on my workshop project.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=1879'

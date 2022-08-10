@@ -2,7 +2,7 @@
 id: 2225
 title: 'Outdoor Bench from Demolition Wood'
 date: '2014-12-23T15:43:20+13:00'
-author: RhysGoodwin
+
 excerpt: 'A solid Rimu outdoor seat made from demolition timber.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=2225'

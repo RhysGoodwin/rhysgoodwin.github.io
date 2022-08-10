@@ -2,7 +2,7 @@
 id: 111
 title: 'Dual Cloned Windows Install with Linux GRUB'
 date: '2008-07-05T23:01:24+13:00'
-author: RhysGoodwin
+
 excerpt: 'Boot multiple isolated copies of Windows off the same hard drive using the free Linux boot loader "Grub". (Linux not required!)'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=111'
@@ -41,7 +41,7 @@ These are the steps I eventually followed:
 7\. Create a Linux partition in the remaining space using fdisk or cfdisk; flag this partition as the bootable partition. Assuming the disk is **/dev/hda**; XP1 and XP2 are **/dev/hda1** and **/dev/hda2** then this partition will be **/dev/hda3**
 
 ```
-<pre style="text-align: left;">cfdisk /dev/hda
+cfdisk /dev/hda
 ```
 
 .

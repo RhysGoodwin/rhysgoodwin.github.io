@@ -2,7 +2,7 @@
 id: 1399
 title: 'Structured Cable at Home (&#8216;F&#8217; Patch Panel)'
 date: '2011-07-11T19:37:17+13:00'
-author: RhysGoodwin
+
 excerpt: 'A simple ''F'' / RG6 Coax Patch panel'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=1399'

@@ -2,7 +2,7 @@
 id: 1237
 title: 'FindPrivateKey.exe (Pre-Compiled)'
 date: '2011-04-07T19:38:42+13:00'
-author: RhysGoodwin
+
 excerpt: 'Download FindPrivateKey.exe tool!'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=1237'

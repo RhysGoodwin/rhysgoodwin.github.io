@@ -2,7 +2,7 @@
 id: 1510
 title: 'Salesforce &#8211; Special Meal Requests!'
 date: '2011-09-06T20:41:48+13:00'
-author: RhysGoodwin
+
 excerpt: 'Salesforce - No Software, No Servers, NO SPECIAL MEALS!'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=1510'

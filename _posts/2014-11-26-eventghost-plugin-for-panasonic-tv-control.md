@@ -2,7 +2,7 @@
 id: 2161
 title: 'Eventghost plugin for Panasonic TV Control'
 date: '2014-11-26T18:10:31+13:00'
-author: RhysGoodwin
+
 excerpt: 'VieraControl - A simple Eventghost plug-in to control Panasonic TVs over IP'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=2161'

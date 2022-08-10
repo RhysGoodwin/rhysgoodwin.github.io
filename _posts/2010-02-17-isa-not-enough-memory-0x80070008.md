@@ -2,7 +2,7 @@
 id: 458
 title: 'ISA Not Enough Memory (0x80070008)'
 date: '2010-02-17T17:29:40+13:00'
-author: RhysGoodwin
+
 excerpt: 'A possible cause for error 0x80070008 in Microsoft ISA server '
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=458'

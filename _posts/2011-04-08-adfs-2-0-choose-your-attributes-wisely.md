@@ -2,7 +2,7 @@
 id: 1254
 title: 'ADFS 2.0 &#8211; Choose Your Attributes Wisely'
 date: '2011-04-08T19:57:42+13:00'
-author: RhysGoodwin
+
 excerpt: 'A potential security hole that can be unwittingly created in ADFS Web SSO implementation. '
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=1254'

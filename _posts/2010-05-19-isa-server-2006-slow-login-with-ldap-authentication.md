@@ -2,7 +2,7 @@
 id: 518
 title: 'ISA Server 2006 Slow Login with LDAP Authentication'
 date: '2010-05-19T17:18:56+13:00'
-author: RhysGoodwin
+
 excerpt: 'Fix for slow FBA login with Microsoft ISA when using LDAP authentication.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=518'
@@ -44,7 +44,7 @@ Immediately after the LDAP server issues the “Server Hello” there would be a
 After much digging I eventually ran process monitor on the ISA server and found that there was a RSA machine key which the firewall service (wspsrv.exe) was trying to access which it didn’t have permission to.
 
 ```
-<em>C:\Documents and Settings\All Users\Application Data\Microsoft\Crypto\RSA\MachineKeys</em>
+C:\Documents and Settings\All Users\Application Data\Microsoft\Crypto\RSA\MachineKeys
 ```
 
 [![](/content/uploads/2010/05/ProcessMon.jpg "ProcessMon")](/content/uploads/2010/05/ProcessMon.jpg)

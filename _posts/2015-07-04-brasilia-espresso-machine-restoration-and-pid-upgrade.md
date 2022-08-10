@@ -2,7 +2,7 @@
 id: 2277
 title: 'Brasilia Espresso Machine Restoration and PID Upgrade'
 date: '2015-07-04T19:29:57+13:00'
-author: RhysGoodwin
+
 excerpt: 'Brasilia ''Lady'' coffee machine restoration and modification with oLED display and Arduino PID.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=2277'

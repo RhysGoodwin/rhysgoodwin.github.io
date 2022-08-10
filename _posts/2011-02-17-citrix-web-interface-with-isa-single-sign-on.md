@@ -2,7 +2,7 @@
 id: 997
 title: 'Citrix Web Interface with ISA Single Sign On'
 date: '2011-02-17T20:16:52+13:00'
-author: RhysGoodwin
+
 excerpt: 'How to configure single-sign-on for the Citrix Web Interface/Secure Gateway with Microsoft ISA server.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=997'

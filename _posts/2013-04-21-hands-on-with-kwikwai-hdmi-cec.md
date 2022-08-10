@@ -2,7 +2,7 @@
 id: 1850
 title: 'Hands on with Kwikwai HDMI CEC'
 date: '2013-04-21T15:08:28+13:00'
-author: RhysGoodwin
+
 excerpt: 'Kwikwai - Powerful HDMI CEC Home Theater Automation '
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=1850'

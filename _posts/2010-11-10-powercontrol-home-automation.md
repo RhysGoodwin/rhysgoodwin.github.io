@@ -2,7 +2,7 @@
 id: 695
 title: 'PowerControl Home Automation'
 date: '2010-11-10T10:33:37+13:00'
-author: RhysGoodwin
+
 excerpt: 'Control external devices using a parallel port, network print server or K8055 USB board. Now with network control support! Free download. '
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=695'
@@ -47,7 +47,7 @@ PowerCmd is a command line tool which allows you to interact with a PowerControl
 
 [![](/content/uploads/2010/11/architecture.jpg "PowerControl Architecture")](/content/uploads/2010/11/architecture.jpg)
 
-**<span style="text-decoration: underline;">Version History</span>**
+**Version History**  
 
 0.1.7.0 (2008-08-24) (PowerTray)
 
@@ -63,4 +63,5 @@ PowerCmd is a command line tool which allows you to interact with a PowerControl
 - Added support for Windows 7
 - Split service config from PowerTray client
 
-[ PowerControl (2739 downloads) ](https://blog.rhysgoodwin.com/download/2455/)
+**Download**  
+[ PowerControlSetup.msi ](/content/uploads/downloads/2010/11/PowerControlSetup.msi)

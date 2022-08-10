@@ -2,7 +2,7 @@
 id: 1709
 title: '1 Year Workshop Renovation'
 date: '2013-01-14T21:22:59+13:00'
-author: RhysGoodwin
+
 excerpt: 'Converting my decrepit old garage into a tidy workshop.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=1709'

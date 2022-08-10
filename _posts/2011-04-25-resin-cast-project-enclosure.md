@@ -2,7 +2,7 @@
 id: 973
 title: 'Resin Cast Project Enclosure'
 date: '2011-04-25T20:05:48+13:00'
-author: RhysGoodwin
+
 excerpt: 'How to make a custom size project box with polyester resin.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=973'

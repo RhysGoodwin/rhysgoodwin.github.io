@@ -2,7 +2,7 @@
 id: 115
 title: 'Parallel Port Power Control Utility'
 date: '2008-08-24T22:28:43+13:00'
-author: RhysGoodwin
+
 excerpt: 'A tidy system tray tool to control AC devices that are switched by a parallel port or print server. Supports multiple networked parallel ports / printer servers.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=115'

@@ -2,7 +2,7 @@
 id: 310
 title: 'RDP through a firewall fails with: &#8220;The RPC server is unavaliable&#8221;'
 date: '2009-07-01T11:19:48+13:00'
-author: RhysGoodwin
+
 excerpt: 'Trying to RDP to a Windows 2003 server behind a firewall using an account from a trusted domain fails with an RPC error. An easy workaround without opening up RPC on the firewall!'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=310'

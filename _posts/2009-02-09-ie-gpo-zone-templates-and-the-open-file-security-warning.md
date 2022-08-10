@@ -2,7 +2,7 @@
 id: 144
 title: 'IE GPO Zone Templates and the &#8220;Open File &#8211; Security Warning&#8221;'
 date: '2009-02-09T23:20:24+13:00'
-author: RhysGoodwin
+
 excerpt: "Do you get Open File - Security Warning? Do you get strange results when trying to manage Internet Explorer security zones with group policy? Read This!\r\n\r\n"
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=144'

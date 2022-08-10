@@ -2,7 +2,7 @@
 id: 1542
 title: 'Pet Door Opening in a Security Mesh Door'
 date: '2011-11-19T14:00:03+13:00'
-author: RhysGoodwin
+
 excerpt: 'How to make an opening for a pet door in a security mesh door'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=1542'

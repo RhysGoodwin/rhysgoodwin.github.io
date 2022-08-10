@@ -2,7 +2,7 @@
 id: 72
 title: 'Bulk replace owner / permissions on user&#8217;s server based home directory'
 date: '2008-03-06T21:56:58+13:00'
-author: RhysGoodwin
+
 excerpt: 'How to easily replaces ownership and permissions on a folders using a simple script. Set ownership for users home folders.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=72'

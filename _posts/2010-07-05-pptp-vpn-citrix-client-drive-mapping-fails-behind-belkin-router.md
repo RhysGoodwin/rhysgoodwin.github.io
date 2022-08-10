@@ -2,7 +2,7 @@
 id: 537
 title: 'PPTP VPN &#038; Citrix client drive mapping fails behind belkin router'
 date: '2010-07-05T19:00:59+13:00'
-author: RhysGoodwin
+
 excerpt: 'Some Belkin routers break PPTP VPNs and Citrix client drive mapping '
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=537'

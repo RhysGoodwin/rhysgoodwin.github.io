@@ -2,7 +2,7 @@
 id: 828
 title: 'Create a Duplicate WordPress QA Site'
 date: '2010-12-04T19:45:02+13:00'
-author: RhysGoodwin
+
 excerpt: 'A simple script to duplicates a WordPress blog to different folder/subdomain. Do testing/development without disruption to your live site.  Easily refresh test site from live site.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=828'

@@ -2,7 +2,7 @@
 id: 2423
 title: 'Panasonic Strada CN-MW250D USB Pinouts'
 date: '2018-01-17T08:43:02+13:00'
-author: RhysGoodwin
+
 excerpt: 'Panasonic Strada USB Cable Pinouts'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=2423'

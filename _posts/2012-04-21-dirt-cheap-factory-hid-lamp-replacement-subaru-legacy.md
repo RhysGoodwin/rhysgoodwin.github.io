@@ -2,7 +2,7 @@
 id: 1676
 title: 'Dirt Cheap Factory HID Lamp Replacement (Subaru Legacy)'
 date: '2012-04-21T16:40:02+13:00'
-author: RhysGoodwin
+
 excerpt: 'How to replace a factory HID lamp in a ~2000 Model Subaru Legacy/Outback. '
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=1676'

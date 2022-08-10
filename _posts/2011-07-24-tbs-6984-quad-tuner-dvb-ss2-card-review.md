@@ -2,7 +2,7 @@
 id: 1421
 title: 'TBS 6984 Quad Tuner DVB-S/S2 Card (Review)'
 date: '2011-07-24T19:00:44+13:00'
-author: RhysGoodwin
+
 excerpt: 'Review of the TBS 6984 Quad Tuner DVB-S/S2 PCIe Satellite TV Card'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=1421'

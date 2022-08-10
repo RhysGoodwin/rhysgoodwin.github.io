@@ -2,7 +2,7 @@
 id: 726
 title: 'Inkjet/Toner Hybrid PCB Printing'
 date: '2010-11-14T13:38:04+13:00'
-author: RhysGoodwin
+
 excerpt: 'Video how-to: Direct to PCB printing with the inkjet/toner hybrid method.  Etched with Cupric Chloride. With component-side silkscreen!'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=726'

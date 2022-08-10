@@ -2,7 +2,7 @@
 id: 805
 title: 'PCB Drill Press'
 date: '2010-11-29T17:39:37+13:00'
-author: RhysGoodwin
+
 excerpt: 'PCB Drill press made using an old rack mount server rail and other bits''n pieces from the garage!'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=805'

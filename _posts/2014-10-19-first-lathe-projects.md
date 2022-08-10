@@ -2,7 +2,7 @@
 id: 2137
 title: 'First Lathe Projects'
 date: '2014-10-19T14:40:03+13:00'
-author: RhysGoodwin
+
 excerpt: 'My first little lathe projects. Which happen to be improvements to the lathe!'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=2137'

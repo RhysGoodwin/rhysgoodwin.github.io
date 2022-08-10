@@ -2,7 +2,7 @@
 id: 350
 title: 'MOSS Split Back-to-Back in the Real World'
 date: '2010-02-01T16:48:14+13:00'
-author: RhysGoodwin
+
 excerpt: 'My personal real-world experience of configuring MOSS 2007 in a split back-to-back topology using Microsoft ISA server 2006'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=350'
@@ -280,7 +280,7 @@ To enable the “PeoplePicker” in a one-way trust scenario to search both doma
 On all servers in the farm:
 
 ```
-<pre style="padding-left: 30px;"><span style="color: #0000ff;">stsadm -o setapppassword -password “(password)”</span>
+stsadm -o setapppassword -password “(password)”
 ```
 
 (Where “password” is a strong password shared between the servers.
@@ -288,10 +288,10 @@ On all servers in the farm:
 On all web front end servers:
 
 ```
-<pre style="padding-left: 30px;"><span style="color: #0000ff;">stsadm -o setproperty -url http://sharepoint -pn
+stsadm -o setproperty -url http://sharepoint -pn
 "peoplepicker-searchadforests"
 -pv "domain:perimeter.corp.local",
-PERIMETER\PeoplePickerService, (Password)</span>
+PERIMETER\PeoplePickerService, (Password)
 ```
 
 (Where “Password” is the password for the unprivileged service account “PeoplePickerService” used to perform lookups on the perimeter domain)
@@ -325,8 +325,8 @@ A patch in ISA 2006 SP1, as means to fix a security vulnerability broke password
 <div>When a password is changed using the ISA FBA change password tool the password complexity is checked against the domain that the ISA server is a member of. This means that both the internal and perimeter domains must have the same password complexity / length requirements to ensure consistent behaviour for end users. *-I need to confirm this one!*</div><div>**SSRS in SharePoint Default Zone Only**When using SQL Server Reporting Services in SharePoint integrated mode some methods of viewing reports are only supported in the default zone. For example, if you try to open a report from a document library while accessing the sharepoint on http://sharepoint.corp.com (intranet zone) instead of https://sharepoint.corp.com (default zone) you will be presented with the following error.
 
 </div>```
-<pre style="padding-left: 30px;"><span style="color: #ff0000;">The specified path refers to a SharePoint zone that is not supported.
-The default zone path must be used.</span>
+The specified path refers to a SharePoint zone that is not supported.
+The default zone path must be used.
 ```
 
 The report viewer webpart works correctly regardless of what zone it is accessed in.

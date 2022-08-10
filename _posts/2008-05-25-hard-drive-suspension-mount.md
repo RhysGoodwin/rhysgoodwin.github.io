@@ -2,7 +2,7 @@
 id: 87
 title: 'Quiet PC &#8211; Hard Drive Suspension Mount'
 date: '2008-05-25T22:30:48+13:00'
-author: RhysGoodwin
+
 excerpt: 'Quick and easy elastic hard drive suspension mount for a quiet PC / HTPC '
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=87'

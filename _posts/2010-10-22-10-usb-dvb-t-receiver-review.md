@@ -2,7 +2,7 @@
 id: 607
 title: '$10 USB DVB-T Receiver Review'
 date: '2010-10-22T21:07:19+13:00'
-author: RhysGoodwin
+
 excerpt: 'Mini review of a very cheap USB DVB-T dongle'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=607'

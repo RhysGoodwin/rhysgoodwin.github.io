@@ -106,11 +106,21 @@ analytics:
 author:
   name             : "Rhys Goodwin"
   avatar           : "/img/avatar-icon.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : >
-                    This is one of my blogs just a few bits and pieces;  IT, woodwork, metalwork, electronics, DIY, technology 
-                    articles and anything else I might be currently interested in and get around to documenting.
+  bio              : |
+                    This is/was one of my blogs. Just a few bits and pieces - IT, woodwork, metalwork, electronics, DIY, technology 
+                    articles and anything else I might be currently interested in and get around to documenting. 
+                    
+                    There might be some broken things because this site was converted roughly from Wordpress to jekyll.
 
-  location         : "Tāmaki-Makaurau"
+                    My main area of interest these days is political party innovation which I'm building a project for at **[ oneaction.nz ](https://oneaction.nz)**
+
+                    My more recent blog which is politically focused is **[ rhysmg.nz ](https://rhysmg.nz)**
+
+                  
+
+
+
+  location         : "Tāmaki-Makaurau, Aotearoa"
   email            :
   links:
     - label: "Email"
@@ -243,6 +253,7 @@ whitelist:
   - jekyll-include-cache
 
 
+####
 # Archives
 #  Type
 #  - GitHub Pages compatible archive pages built with Liquid ~> type: liquid (default)
@@ -253,12 +264,17 @@ whitelist:
 #  - <base_path>/tags/my-awesome-tag/index.html ~> path: /tags/
 #  - <base_path>/categories/my-awesome-category/index.html ~> path: /categories/
 #  - <base_path>/my-awesome-category/index.html ~> path: /
-category_archive:
-  type: liquid
-  path: /categories/
-tag_archive:
-  type: liquid
-  path: /tags/
+
+    #Default config commednted out because I don't have time to figure out how this stuff works. 
+    #This prevents tags and categories being displayed at the bottom of posts becuase clicking on them = 404. - RG 2022-08-10
+        # category_archive:
+        #   type: liquid
+        #   path: /categories/
+        # tag_archive:
+        #   type: liquid
+        #   path: /tags/
+
+
 # https://github.com/jekyll/jekyll-archives
 # jekyll-archives:
 #   enabled:
@@ -290,6 +306,7 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
+      show_date: true
       comments: # true
       share: true
       related: false

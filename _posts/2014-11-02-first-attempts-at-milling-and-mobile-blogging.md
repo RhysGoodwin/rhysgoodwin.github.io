@@ -2,7 +2,7 @@
 id: 2151
 title: 'First attempts at milling (and mobile blogging)'
 date: '2014-11-02T21:54:09+13:00'
-author: RhysGoodwin
+
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=2151'
 permalink: /fabrication/first-attempts-at-milling-and-mobile-blogging/

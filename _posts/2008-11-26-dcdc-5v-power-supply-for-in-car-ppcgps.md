@@ -2,7 +2,7 @@
 id: 125
 title: 'DC/DC 5V Power Supply for in car PPC/GPS'
 date: '2008-11-26T23:15:23+13:00'
-author: RhysGoodwin
+
 excerpt: 'An easy to build DC/DC 5 Volt power supply. Great for car based projects. GPS , Ipaq, Car PC.'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=125'

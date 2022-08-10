@@ -2,7 +2,7 @@
 id: 1986
 title: 'Invisible Magnetic Reed Switches'
 date: '2013-10-29T19:51:28+13:00'
-author: RhysGoodwin
+
 excerpt: 'How to install totally invisible security alarm window reed switches in wooden joinery'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=1986'

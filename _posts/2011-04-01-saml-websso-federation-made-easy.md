@@ -2,7 +2,7 @@
 id: 1126
 title: 'SAML WebSSO &#038; Federation Made Easy'
 date: '2011-04-01T11:58:06+13:00'
-author: RhysGoodwin
+
 excerpt: 'SAML (Security Assertion Mark-up Language) and Federation Made Easy!'
 layout: single
 guid: 'https://blog.rhysgoodwin.com/?p=1126'

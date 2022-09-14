@@ -752,6 +752,7 @@ rhys@mgmt:~$ aws s3 ls s3:// my-awesome-bucket-name /
 
 And we can list our snapshots:
 ```bash
+rhys@mgmt:~$ kopia snapshot list
 rhys@mgmt:/home/rhys
   2022-09-13 02:29:31 UTC k1ec1fe89bba7206a48c6f3a5d7adf2ce 2 GB drwxr-xr-x files:37349 dirs:6911 (latest-1,hourly-1,daily-1,weekly-1,monthly-1,annual-1)
 ```

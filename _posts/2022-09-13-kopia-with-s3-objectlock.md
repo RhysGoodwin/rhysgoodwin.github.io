@@ -49,7 +49,7 @@ I create my buckets and associated objects (IAM accounts etc.) using Terraform. 
     * All public access is disabled
     * (optional) server side encryption enabled (with bucket key). Maybe overkill since Kopia encrypts the data
     * A lifecycle rule which expires (deletes) non-current data after 30 days
-* An IAM account/key with a policy attached with limited permission just to this bucket. Permissions. Are these correct? Where did I get this list from?
+* An IAM account/key with a policy attached with limited permission just to this bucket. Permissions:
    * s3:GetObjectRetention
    * s3:DeleteObjectVersion
    * s3:ListBucketVersions
@@ -63,6 +63,9 @@ I create my buckets and associated objects (IAM accounts etc.) using Terraform. 
    * s3:PutObjectRetention
    * s3:DeleteObject
    * s3:GetObjectVersion
+
+Todo: are these permissions^ correct? Where did I get this list from?
+{: .notice--danger}
 
 You should be able to tell the settings you need from this TF file:  
 

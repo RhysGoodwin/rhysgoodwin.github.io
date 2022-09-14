@@ -2,29 +2,17 @@
 title: 'Kopia Ransom Protection with AWS S3 Object Lock'
 date: '2022-09-13T00:00:00+00:00'
 permalink: /it/kopia-ransom-protection/
+author_profile: true
+excerpt: 'Kopia is beautiful open-source backup software. This post explores Kopia and AWS S3 configurations which provide immutability and or protection against ransom attacks.'
+layout: single
 categories:
     - it
-author_profile: true
-excerpt: 'In Windows 7 and Windows 10 disabling IPv6 also disables dynamic DNS registration. I guess it''s a bug?'
-layout: single
-
-embed:
-    - ''
-url:
-    - ''
-lightbox-url:
-    - ''
-testimonial:
-    - ''
-testimonial_author:
-    - ''
-categories:
-    - Uncategorized
 tags:
     - Kopia
     - 's3'
     - 'objectlock'
     - 'WORM'
+    - 'ransomware'
 ---
 
 Warning: This article is a work in progress, take it with a grain of salt.

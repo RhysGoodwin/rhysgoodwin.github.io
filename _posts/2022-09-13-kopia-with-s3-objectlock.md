@@ -60,7 +60,6 @@ You should be able to tell the settings you need from this TF file:
 
 <details>  <summary>bkp_s3.tf</summary>
 {% highlight terraform %}
-
 resource "aws_s3_bucket" "bkp_s3" {
   bucket = "my-awesome-bucket-name"
   object_lock_enabled = true
@@ -131,7 +130,6 @@ resource "aws_iam_access_key" "bkp_s3" {
 resource "aws_iam_user_policy" "bkp_s3" {
   name = "${aws_s3_bucket.bkp_s3.bucket}"
   user = aws_iam_user.bkp_s3.name
-
   policy = jsonencode({
     "Version": "2012-10-17",
     "Statement": [
@@ -161,15 +159,6 @@ resource "aws_iam_user_policy" "bkp_s3" {
     ]
  })
 }
-
-resource "local_file" "bkp_s3" {
-content  = <<EOT
-sec_tf_bkp_bucket_iam_id_bkp_s3: ${aws_iam_access_key.bkp_s3.id}
-sec_tf_bkp_bucket_iam_secret_bkp_s3: ${aws_iam_access_key.bkp_s3.secret}
-EOT
-file_permission = 0600
-filename = "${var.SecPath}/sec_tf_bkp_iam_bkp_s3.yml"
-}   
 {% endhighlight %}
 </details>   
 

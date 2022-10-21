@@ -240,4 +240,13 @@ Thanks for stopping by. Feel free to ask questions.
 
 Here is the source code and PCB schematic designs if anyone is interested. I’d be happy to have critique on either.
 
-[ uCespresso PCB (1382 downloads) ](https://blog.rhysgoodwin.com/download/2471/)[ uCespresso Arduino Code (1532 downloads) ](https://blog.rhysgoodwin.com/download/2473/)
+
+***Update 2022-10-22***
+- If I were to do the PCB design again (i.e. I suggest you do this), use a separate IO pin for each button, don't try to economise with 4 buttons off a single pin like I did. I've sometimes had issues with buttons being mis-read. It should be possible to make it more robust in the code but using separate inputs is going to make things less complicated. 
+- Below is the code from the original post (0.75) and the latest code (0.78) which I’m currently running. You’ll notice in the current code that I’ve commented out a lot of code related to forced heating. I was previously disabling the PID while water was being pumped and setting the heater to a pre-set power level. This is because when we’re pumping in cold water, we don’t need to wait for the PID to realise and start adjusting. However, all this starting and stopping of the PID introduced a bug somewhere and sometimes the PID would just go haywire and overheat the boiler. Since commenting out all this code and just letting the PID do it’s thing, it’s been rock-solid. I’m sure the code could be improved a lot – I’m just a wannabe developer!  At some point I should get this into a repo. Or if you make improvements feel free to do so and I’ll post a link to your repo here. 
+
+
+
+- [ uCespresso PCB ](/content/uploads/downloads/2015/07/uCespresso-PCB.zip)
+- [ uCespresso Arduino Code 0.75 ](/content/uploads/downloads/2015/07/uCespresso-0.75-Code.zip)
+- [ uCespresso Arduino Code 0.78 ](/content/uploads/downloads/2015/07/uCespresso-0.78-Code.zip)

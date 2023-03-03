@@ -18,11 +18,11 @@ Kia ora folks,
 This is a quick recipe to build a transparent firewall and packet mangler. This can be used for things like SD-WAN testing where you place it transparently in-line between the WAN port and the uplink and use it to limit bandwidth, add latency, introduce packet loss/corruption, and block destinations.
 You can also use this arrangement for packet capture. 
 
-You can use a server, desktop, or VM with three network interfaces running Ubuntu Server 22.04. One NIC is for management and has an IP address so I can SSH to it. The other two NICs are configured in a bridge. I did my testing with a Hyper-V VM. For a VM make sure MAC spoofing is allowed for the two bridge NICs.
+You can use a server, desktop, or VM with three network interfaces running Ubuntu Server 22.04. One NIC is for management and has an IP address so I can SSH to it. The other two NICs are configured in a bridge. Or 4 NICs for two bridges. I did my testing with a Hyper-V VM. For a VM make sure MAC spoofing is allowed for the two bridge NICs.
 
 [![](/content/uploads/2022/11/15/brfw-t.png)](/content/uploads/2022/11/15/brfw-w.png)
 
-You can think of these two NICS in a bridge as an ethernet cable which connects the SD-WAN router to the internet uplink – an ethernet cable which can transparently manipulate the packets flowing through it. 
+You can think of the two NICS in a bridge as an ethernet cable which connects the SD-WAN router to the internet uplink – an ethernet cable which can transparently manipulate the packets flowing through it. 
 
 I’m not going to go in to too much detail, just the main steps to get you going. Let me know if you have any questions and I’ll update the post as needed. The main tools we’re using are:
 * **tc**: the Linux kernel traffic control utility. This is used for rate limiting and introducing packet loss etc. 
@@ -45,6 +45,12 @@ network:
     eth2:
       dhcp4: false
       link-local: [ ]
+    eth3:
+      dhcp4: false
+      link-local: [ ]
+    eth4:
+      dhcp4: false
+      link-local: [ ]      
   bridges:
     br0:
       dhcp4: false
@@ -52,6 +58,12 @@ network:
       interfaces:
         - eth1
         - eth2
+    br1:
+      dhcp4: false
+      link-local: [ ]
+      interfaces:
+        - eth3
+        - eth4        
 ```
 
 {:start="3"}
@@ -64,7 +76,7 @@ network:
 Now that the basic networking is in place, confirm that things are working just as if you had a cable between the router and the uplink, then we can start messing with some packets. 
 
 # tc
-The first thing to consider is that these **tc** commands only apply to egress (outgoing) packets so if you want to manipulate both directions you need to apply your configuration to both interfaces. Just remember that for round trip latency it will be double. I.e. 30ms will be 60, likewise 10% packet loss on both interfaces will be 20%.  I wrote some very basic shell scripts for different scenarios.
+The first thing to consider is that these **tc** commands only apply to egress (outgoing) packets so if you want to manipulate both directions you need to apply your configuration to both interfaces. Just remember that for round trip latency it will be double. I.e. 30ms will be 60, likewise 10% packet loss on both interfaces will be 20%.  I wrote some very basic shell scripts for different scenarios. In these examples I'm just working with br0 (eth1, eth2).
 
 #### Scenario 1 - Rate limit and latency
 ```bash
@@ -129,9 +141,9 @@ Here's some links for nft:
 
 #### Update
 Here's a great series of posts I found some time after writing this article:
-* https://www.excentis.com/blog/use-linux-traffic-control-as-impairment-node-in-a-test-environment-part-1/
-* https://www.excentis.com/blog/use-linux-traffic-control-as-impairment-node-in-a-test-environment-part-2/
-* https://www.excentis.com/blog/use-linux-traffic-control-as-impairment-node-in-a-test-environment-part-3/
+* [https://www.excentis.com/blog/use-linux-traffic-control-as-impairment-node-in-a-test-environment-part-1/](https://www.excentis.com/blog/use-linux-traffic-control-as-impairment-node-in-a-test-environment-part-1/)
+* [https://www.excentis.com/blog/use-linux-traffic-control-as-impairment-node-in-a-test-environment-part-2/](https://www.excentis.com/blog/use-linux-traffic-control-as-impairment-node-in-a-test-environment-part-2/)
+* [https://www.excentis.com/blog/use-linux-traffic-control-as-impairment-node-in-a-test-environment-part-3/](* https://www.excentis.com/blog/use-linux-traffic-control-as-impairment-node-in-a-test-environment-part-3/)
 
 That’s it! Happy packet mangling!
 

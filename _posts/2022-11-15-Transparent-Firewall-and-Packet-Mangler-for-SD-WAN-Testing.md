@@ -133,7 +133,6 @@ Here's a great series of posts I found some time after writing this article:
 * https://www.excentis.com/blog/use-linux-traffic-control-as-impairment-node-in-a-test-environment-part-2/
 * https://www.excentis.com/blog/use-linux-traffic-control-as-impairment-node-in-a-test-environment-part-3/
 
-
 That’s it! Happy packet mangling!
 
 Ngā mihi nui   

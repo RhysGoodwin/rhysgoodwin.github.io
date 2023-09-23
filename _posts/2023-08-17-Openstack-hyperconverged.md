@@ -45,7 +45,7 @@ And of course, what good is a lab if it can't keep your linen closet warm and dr
 
 ### Solution Overview
 [![](/content/uploads/2023/09/21/Physical.png)](/content/uploads/2023/09/21/Physical.png)
-- Each node (hcn01, hcn02, hcn03) are identical. In the diagram I've only shown the detail for hcn01 
+- Each node (hcn01, hcn02, hcn03) is identical. In the diagram I've only shown the detail for hcn01 
 - The OpenStack controller VM and the and the firewall VM live on the storage cluster but outside of OpenStack as simple libvirt KVM VMs. These can be live migrated between hosts as needed for maintenance etc. 
 
 

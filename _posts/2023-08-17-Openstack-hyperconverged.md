@@ -2270,6 +2270,74 @@ If a host is marked as offline when really it isn't:
 ceph cephadm check-host hcn03
 ```
 
+### Adding a new set of disks
+Here are steps I took to add a new 2TB sata disk to each host
+- Create new sata0 
+- Create a new crush rule class and crush rule
+- Create a new pools 'volumes2'
+- Assign the new crush rule to the new pool
+- Update the capabilites for the client.cinder user
+
+```bash
+ceph osd crush rm-device-class osd.3
+ceph osd crush rm-device-class osd.4
+ceph osd crush rm-device-class osd.5
+
+ceph osd crush set-device-class sata0 osd.3
+ceph osd crush set-device-class sata0 osd.4
+ceph osd crush set-device-class sata0 osd.5
+
+ceph osd crush rule create-replicated replicated_rule_sata0 default host sata0
+
+ceph osd pool create volumes2
+rbd pool init volumes2
+ceph osd pool set volumes2 crush_rule replicated_rule_sata0
+
+ceph auth get client.cinder
+
+ceph auth caps client.cinder mon 'profile rbd' osd 'profile rbd pool=volumes, profile rbd pool=volumes2, profile rbd pool=vms, profile rbd-read-only pool=images' mgr 'profile rbd pool=volumes, profile rbd pool=volumes2, profile rbd pool=vms'
+
+ceph auth get client.cinder
+```
+
+Next add a new backend to Cinder
+Thanks to [https://www.sebastien-han.fr/blog/2013/04/25/ceph-and-cinder-multi-backend/](https://www.sebastien-han.fr/blog/2013/04/25/ceph-and-cinder-multi-backend/)
+
+Edit /etc/cinder/cinder.conf:
+
+```ini
+enabled_backends = ceph-nvme0,ceph-sata0
+#....
+
+[ceph-sata0]
+volume_driver = cinder.volume.drivers.rbd.RBDDriver
+volume_backend_name = ceph-sata0
+rbd_pool = volumes2
+rbd_ceph_conf = /etc/ceph/ceph.conf
+rbd_flatten_volume_from_snapshot = false
+rbd_max_clone_depth = 5
+rbd_store_chunk_size = 4
+rados_connect_timeout = -1
+rbd_user = cinder
+rbd_secret_uuid = 327a788a-3daa-11ee-9092-0d04acbcec26
+
+```
+
+```bash
+cinder type-create nvme0
+cinder type-key nvme0 set volume_backend_name=ceph-nvme0
+
+cinder type-create sata0
+cinder type-key sata0 set volume_backend_name=ceph-sata0
+
+cinder extra-specs-list
+
+systemctl restart cinder-scheduler.service
+systemctl restart cinder-volume.service
+
+```
+Now you should be able to create volumes with the two types instead of the default type
+
 
 ## Windows VM Crash issue
 I've had a couple of Windows VMs crash. Testing this solution.  If this works I'll add the kvm tdp_mmu=0 option to /etc/modprobe.conf/

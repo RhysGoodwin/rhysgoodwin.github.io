@@ -58,10 +58,19 @@ classes:
         {% endif %}
         {% include page__taxonomy.html %}
         {% include page__date.html %}
+
+        <script src="https://utteranc.es/client.js"
+        repo="rhysmg/rhysmg.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+        </script>
       </footer>
 
-      {% if page.share %}{% include social-share.html %}{% endif %}
 
+
+      {% if page.share %}{% include social-share.html %}{% endif %}
       {% include post_pagination.html %}
     </div>
 

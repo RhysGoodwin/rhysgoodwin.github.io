@@ -2343,14 +2343,10 @@ Now you should be able to create volumes with the two types instead of the defau
 I've had a couple of Windows VMs crash. Testing this solution.  If this works I'll add the kvm tdp_mmu=0 option to /etc/modprobe.conf/
 [https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2015455](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2015455)
 
-Shutdown all VMs on all hosts first.
-
 ```bash
 cat /sys/module/kvm/parameters/tdp_mmu
-modprobe -r kvm_intel
-modprobe -r kvm
-modprobe kvm tdp_mmu=0
-modprobe  kvm
-modprobe kvm_intel
+echo "options kvm tdp_mmu=N" >/etc/modprobe.d/kvm-disable-tdp-mmu.conf
 cat /sys/module/kvm/parameters/tdp_mmu
-```
+```bash
+
+Then reboot.

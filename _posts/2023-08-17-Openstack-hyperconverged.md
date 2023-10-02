@@ -2347,6 +2347,6 @@ I've had a couple of Windows VMs crash. Testing this solution.  If this works I'
 cat /sys/module/kvm/parameters/tdp_mmu
 echo "options kvm tdp_mmu=N" >/etc/modprobe.d/kvm-disable-tdp-mmu.conf
 cat /sys/module/kvm/parameters/tdp_mmu
-```bash
+```
 
 Then reboot.

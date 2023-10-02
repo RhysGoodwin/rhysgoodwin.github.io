@@ -2340,7 +2340,7 @@ Now you should be able to create volumes with the two types instead of the defau
 
 
 ## Windows VM Crash issue
-I've had a couple of Windows VMs crash. Testing this solution.  If this works I'll add the kvm tdp_mmu=0 option to /etc/modprobe.conf/
+I've had a couple of Windows VMs crash. Testing this solution. 
 [https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2015455](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2015455)
 
 ```bash

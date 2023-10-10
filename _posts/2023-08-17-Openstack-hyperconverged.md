@@ -2023,7 +2023,7 @@ These the properties which should be applied to a Windows image for secure boot 
 ```
 ### Interesting Image properties for Linux VMS
 ```bash
---property os_distro=debian --property os_type=linux --property hw_vif_model=virtio --property hw_vif_multiqueue_enabled=true
+--property os_distro=ubuntu --property os_type=linux --property hw_vif_model=virtio --property hw_vif_multiqueue_enabled=true
 ```
 ## Migrate Windows Hyper-V VM to OpenStack
 There is a bunch of ways that you can approach this. This is the process I landed on after lot of trial and error. 
@@ -2069,7 +2069,7 @@ wmic logicaldisk get caption
 One of the disks will be the virtio disk. Install the virtio storage drivers from amd64\[os.ver]\ as follows:
 ```
 E:\amd64\2k16\>drvload vioscsi.inf
-E:\amd64\2k16\>drvload viostor.inf```
+E:\amd64\2k16\>drvload viostor.inf
 ```
 
 Run: ```wmic logicaldisk get caption``` again and you should now see another drive letter, in my case C: this is the system disk of the source VM.
@@ -2227,6 +2227,71 @@ virt-install \
   --xml './devices/interface[2]/vlan/tag/@id=10' \
   --autostart
 ```
+
+## Customize a cloud image
+
+Install the libguestfs-tools on the server whre you do your image work. 
+
+Mainly from: More detail here: [https://gist.github.com/si458/98aa940837784e9ef9bff9e24a7a8bfd#file-virt-customize-ubuntu22](https://gist.github.com/si458/98aa940837784e9ef9bff9e24a7a8bfd#file-virt-customize-ubuntu22)
+
+```bash
+apt -y install libguestfs-tools
+virt-customize -a jammy-server-cloudimg-amd64.img --install qemu-guest-agent
+virt-customize -a jammy-server-cloudimg-amd64.img --timezone Pacific/Auckland
+virt-customize -a jammy-server-cloudimg-amd64.img --run-command 'sed -i s/^PasswordAuthentication.*/PasswordAuthentication\ yes/ /etc/ssh/sshd_config'
+virt-customize -a jammy-server-cloudimg-amd64.img --root-password password:MePasword
+
+
+```
+## Disk Work
+#### Expand disk (For libvirt infra VMs)
+```bash
+qemu-img info -f rbd 
+qemu-img resize "rbd:infra-pool/hcc01" +60G
+
+Get the name of the disk
+virsh domblklist hcc01
+
+virsh blockresize --domain hcc01 --path vda --size 120G
+```
+
+#### Extend ubuntu lvm after resizing disk
+```bash
+fdisk -l
+growpart /dev/vda 3
+pvresize /dev/vda3
+lvextend -l +100%FREE /dev/ubuntu-vg/ubuntu-lv
+resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
+```
+
+
+#### Extend ubuntu encrypted lvm after resizing disk
+Credit: (https://semanticlab.net/sysadmin/encryption/How-to-resize-a-LUKS-encrypted-root-partition/)[https://semanticlab.net/sysadmin/encryption/How-to-resize-a-LUKS-encrypted-root-partition/]
+
+```bash
+#Grow the part
+growpart /dev/vda 3
+
+# resize the LUKS parititon (dm_crypt-3)
+cryptsetup resize dm_crypt-0
+
+# resize the physical device on top of it
+pvresize /dev/mapper/dm_crypt-0
+
+# resize the logical device (epiphany-root)
+lvextend -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv
+
+# grow the file system accordingly
+resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
+```
+Remember to reset the LUKS password from the default image
+
+```bash
+cryptsetup luksAddKey /dev/vda3
+# Reboot and test new key, then remove the old key
+cryptsetup luksRemoveKey /dev/vda3
+```
+
 
 ## Useful Ceph Commands
 

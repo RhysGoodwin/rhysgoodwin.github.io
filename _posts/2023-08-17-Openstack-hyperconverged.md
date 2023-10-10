@@ -2266,19 +2266,19 @@ resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
 
 
 #### Extend ubuntu encrypted lvm after resizing disk
-Credit: (https://semanticlab.net/sysadmin/encryption/How-to-resize-a-LUKS-encrypted-root-partition/)[https://semanticlab.net/sysadmin/encryption/How-to-resize-a-LUKS-encrypted-root-partition/]
+Credit: [How to resize a LUKS encrypted root partion](https://semanticlab.net/sysadmin/encryption/How-to-resize-a-LUKS-encrypted-root-partition/)
 
 ```bash
 #Grow the part
 growpart /dev/vda 3
 
-# resize the LUKS parititon (dm_crypt-3)
+# resize the LUKS parititon (dm_crypt-0)
 cryptsetup resize dm_crypt-0
 
 # resize the physical device on top of it
 pvresize /dev/mapper/dm_crypt-0
 
-# resize the logical device (epiphany-root)
+# resize the logical device (ubuntu--vg-ubuntu--lv)
 lvextend -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv
 
 # grow the file system accordingly

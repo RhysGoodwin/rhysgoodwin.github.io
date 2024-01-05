@@ -1922,6 +1922,15 @@ Finally! A UI: http://hcui01.i.rhysmg.nz:9999/
 
 But seriously, get familiar with the OpenStack CLI/API, the UI is just for fun. 
 
+# Quotas 
+```bash
+openstack quota show --all
+
+```
+
+
+
+
 # TLSify
 I wasn't brave enough to do https throughout or certificate-based auth for keystone. I'd like to come back and do this at some point, maybe on the next build. But let's at least add a let's encrypt cert for the Ceph dashboard and Skyline. A separate process will need to be developed to update these every time the cert renews. 
 
@@ -1975,6 +1984,11 @@ Enable redirect_resolve_ip_addr so that if the active manager moves to a differe
 ceph config set mgr mgr/dashboard/redirect_resolve_ip_addr True
 ```
 
+### Yet to try this. 
+ceph config-key set mgr/cephadm/{hostname}/grafana_key -i $PWD/key.pem
+ceph config-key set mgr/cephadm/{hostname}/grafana_crt -i $PWD/certificate.pem
+
+
 ## TLS for Skyline Dashboard
 Make a certs directory on huci01: ```/etc/skyline/certs/```
 From the controller copy the let's encrypt certificates to huci01
@@ -1993,6 +2007,48 @@ docker run -d --name skyline --restart=always -e SSL_CERTFILE=/etc/skyline/certs
 ```
 
 In theory refreshing the cert should just be a case of copying the cert files back to that same path which we could do with a certbot hook. Later.
+
+## Simple Self CA
+Credit: [https://arminreiter.com/2022/01/create-your-own-certificate-authority-ca-using-openssl/](https://arminreiter.com/2022/01/create-your-own-certificate-authority-ca-using-openssl/)
+
+```bash
+CANAME=ca.i.rhysmg.nz
+mkdir $CANAME
+cd $CANAME
+# generate aes encrypted private key
+openssl genrsa -aes256 -out $CANAME.key 4096
+
+# create certificate, 22 years
+openssl req -x509 -new -nodes -key $CANAME.key -sha256 -days 8030 -out $CANAME.crt -subj '/CN=i.rhysmg.nz CA/C=NZ/ST=Auckland/L=Auckland/O=Fairburn'
+
+#Add CA certs to Ubuntu trust store - I haven't done this. 
+sudo apt install -y ca-certificates
+sudo cp $CANAME.crt /usr/local/share/ca-certificates
+sudo update-ca-certificates
+
+
+# Create wildcard cert
+MYCERT=wild.i.rhysmg.nz
+openssl req -new -nodes -out $MYCERT.csr -newkey rsa:4096 -keyout $MYCERT.key -subj '/CN=wild/C=NZ/ST=Auckland/L=Auckland/O=Fairburn'
+# create a v3 ext file for SAN properties
+cat > $MYCERT.v3.ext << EOF
+authorityKeyIdentifier=keyid,issuer
+basicConstraints=CA:FALSE
+keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+subjectAltName = @alt_names
+[alt_names]
+DNS.1 = *.i.rhysmg.nz
+DNS.2 = i.rhysmg.nz
+EOF
+
+#Sign the wildcard cert with the CA cert
+openssl x509 -req -in $MYCERT.csr -CA $CANAME.crt -CAkey $CANAME.key -CAcreateserial -out $MYCERT.crt -days 4015 -sha256 -extfile $MYCERT.v3.ext
+
+```
+
+
+
+
 
 # Snippets & Leftovers
 The remainder of this post is just a scratchpad of snippets, notes and experiments. Much of it is likely incorrect or missing but there might be some gems amongst the trash. 
@@ -2013,7 +2069,7 @@ APT::Periodic::Update-Package-Lists "0";
 APT::Periodic::Unattended-Upgrade "0";
 ```
 
-#Image Work
+# Image Work
 ### Properties for Windows images
 These the properties which should be applied to a Windows image for secure boot and optimal? performance. 
 **NOTE:** The ```--property os_type=windows``` below is very important for Windows performance. As is setting sockets=1 on the flavour (or the image). See: https://www.safespring.com/blogg/2022/2022-02-windows-vm-cpu-perf/
@@ -2143,7 +2199,7 @@ For Windows 10. Server 2016, 2019 etc.
 ```bash
 virt-install \
 --boot firmware=efi,loader_secure=yes \
---cdrom /var/lib/libvirt/images/Win10-mct-2023-06-22.iso \
+--cdrom /imagework/win-2022/windows_server_2022_x64_dvd_63dab61a.iso \
 --features vmport.state=off,hyperv.vapic.state=on,hyperv.spinlocks.state=on,hyperv.spinlocks.retries=8191,hyperv.relaxed.state=on \
 --clock offset=localtime,hypervclock_present=yes,rtc_tickpolicy=catchup,hpet_present=no,pit_tickpolicy=delay \
 --machine q35 \
@@ -2152,13 +2208,13 @@ virt-install \
 --sound ich9 \
 --video qxl \
 --memballoon virtio \
---name win10-img \
+--name win22-img \
 --os-variant win10 \
 --network network=default,model=virtio \
 --ram 4096 \
 --controller=scsi,model=virtio-scsi \
---disk path=/var/lib/libvirt/images/win10-img.qcow2,size=35,device=disk,target.bus=virtio,driver.discard=unmap,cache=writeback,driver.io=threads \
---disk path=/var/lib/libvirt/images/virtio-win-0.1.229.iso,format=raw,device=cdrom,target.bus=sata,readonly=on
+--disk path=/imagework/win-2022/windows-server-2022-2023-11-14.qcow2,size=35,device=disk,target.bus=virtio,driver.discard=unmap,cache=writeback,driver.io=threads \
+--disk path=/imagework/virtio/virtio-win-0.1.229.iso,format=raw,device=cdrom,target.bus=sata,readonly=on
 ```
 - Connect to the VNC console (above I’m using display number 98) ‘exit’ the UEFI menu and select the DVD from the boot manger and start the Windows install. 
 - You will need to load the virtio SCSI driver from the attached virtio ISO.
@@ -2175,7 +2231,7 @@ The VM might stop when it goes for it's first reboot, restart it with ```virsh s
   - Username: Admin (win10) or Administrator (Win Server)
   - run as local system
   - no sysprep
-- Use disk part to delete the recovery part (win10)
+- Use disk part to delete the recovery part (win10, Server 2022)
 - powercfg.exe /hibernate off
 - Configure cloud-init (Allow reboots)
 - Shrink the system partition, leave ~2GB
@@ -2204,6 +2260,25 @@ openstack image create --disk-format raw --container-format bare --public --file
 openstack image set --property os_distro=windows --property os_type=windows --property os_version=10 --property hw_scsi_model=virtio-scsi --property hw_disk_bus=scsi --property hw_qemu_guest_agent=yes --property os_require_quiesce=yes --property hw_machine_type=q35 --property hw_firmware_type=uefi --property os_secure_boot=required --property hw_vif_multiqueue_enabled=true
 win10-2023-08-21 
 ```
+
+## Temp attach an ISO to an existing VM for troubleshooting
+- Migrate the VM to the host where the iso is
+- Get the KVM instance name with ```openstack server show```
+- Attache the ISO ```virsh attach-disk instance-0000008f /imagework/ubuntu-22.04.3-live-server-amd64.iso hdc --type cdrom --config```
+- Edit the instnace and set boot to cdrom: ```virsh edit instance-0000008f```
+  <os>
+    <type arch='x86_64' machine='pc-i440fx-6.2'>hvm</type>
+    <boot dev='cdrom'/>
+    <boot dev='hd'/>
+    <smbios mode='sysinfo'/>
+  </os>
+- Shutdown the instance ```virsh shutdown instance-0000008f```
+- Start the instnace ```virsh start instance-0000008f```
+- Get the the VNC display and connect ```virsh vncdisplay instance-0000008f```
+
+
+
+
 
 ## Sophos XG Firewall Build
 I use a Sophos XG VM as my main firewall and I run it outside of OpenStack. 
@@ -2415,3 +2490,181 @@ cat /sys/module/kvm/parameters/tdp_mmu
 ```
 
 Then reboot.
+
+
+
+## Monitoring server build
+- Create server mon01 on home servers, ssh and set passwd for user ubuntu
+- Add cl-mgm interface, remove home-servers interface
+- Console to server and disable cloud init
+```
+touch /etc/cloud/cloud-init.disabled
+```
+- Configure netplan
+- Install chrony and point hcn01
+- update
+
+```bash
+apt update
+apt upgrade
+```
+
+### Install grafana
+Credit: [https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-grafana-on-ubuntu-22-04](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-grafana-on-ubuntu-22-04)
+
+```bash
+wget -q -O - https://packages.grafana.com/gpg.key | gpg --dearmor | sudo tee /usr/share/keyrings/grafana.gpg > /dev/null
+echo "deb [signed-by=/usr/share/keyrings/grafana.gpg] https://packages.grafana.com/oss/deb stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+apt update
+apt install grafana
+```
+
+Configure Grafana
+```ini
+[server]
+protocol = https
+http_port = 3000
+domain = mon.i.rhysmg.nz
+cert_file = /etc/grafana/certs/wild.i.rhysmg.nz.crt
+cert_key = /etc/grafana/certs/wild.i.rhysmg.nz.key
+```
+
+
+Start and enable Grafana service
+```bash
+systemctl start grafana-server
+systemctl status grafana-server
+systemctl enable grafana-server
+```
+
+### Install Prometheus Server
+
+```bash
+wget https://github.com/prometheus/prometheus/releases/download/v2.47.2/prometheus-2.47.2.linux-amd64.tar.gz
+groupadd --system prometheus
+useradd -s /sbin/nologin --system -g prometheus prometheus
+mkdir /etc/prometheus
+mkdir /var/lib/prometheus
+tar vxf prometheus*.tar.gz
+cd prometheus*/
+mv prometheus /usr/local/bin
+mv promtool /usr/local/bin
+chown prometheus:prometheus /usr/local/bin/prometheus
+chown prometheus:prometheus /usr/local/bin/promtool
+mv consoles /etc/prometheus
+mv console_libraries /etc/prometheus
+mv prometheus.yml /etc/prometheus
+chown prometheus:prometheus /etc/prometheus
+chown -R prometheus:prometheus /etc/prometheus/consoles
+chown -R prometheus:prometheus /etc/prometheus/console_libraries
+chown -R prometheus:prometheus /var/lib/prometheus
+```
+
+Create service unit at /etc/systemd/system/prometheus.service
+```ini
+[Unit]
+Description=Prometheus
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=prometheus
+Group=prometheus
+Type=simple
+ExecStart=/usr/local/bin/prometheus \
+    --config.file /etc/prometheus/prometheus.yml \
+    --storage.tsdb.path /var/lib/prometheus/ \
+    --web.console.templates=/etc/prometheus/consoles \
+    --web.console.libraries=/etc/prometheus/console_libraries
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Enable and start service
+
+```bash
+systemctl daemon-reload
+systemctl enable prometheus
+systemctl start prometheus
+```
+
+### Install Prometheus Node Exporter (On other hosts to be monitored)
+```bash
+wget https://github.com/prometheus/node_exporter/releases/download/v1.6.1/node_exporter-1.6.1.linux-amd64.tar.gz
+tar vxf node_exporter*.tar.gz
+cd node_exporter*/
+mv node_exporter /usr/local/bin
+groupadd --system node_exporter
+useradd -s /sbin/nologin --system -g node_exporter node_exporter
+```
+
+Create service unit at /etc/systemd/system/node_exporter.service
+```ini
+[Unit]
+Description=Node Exporter
+After=network.target
+
+[Service]
+User=node_exporter
+Group=node_exporter
+Type=simple
+ExecStart=/usr/local/bin/node_exporter
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Enable and start service
+```bash
+systemctl daemon-reload
+systemctl enable node_exporter
+systemctl start node_exporter
+systemctl status node_exporter
+```
+
+# Resource Allocation Issue
+I was having issues with migrating VMs and was getting this notice in /var/log/nova/nova-scheduler.log
+```Got no allocation candidates from the Placement API. This could be due to insufficient resources or a temporary occurrence as compute nodes start up.```
+
+I found the VCPU ratio was set to 4. I have 8 cores so that only allowed up to 32 vCPUs to be allocated. This applies even if not all the VMs are powerd on. So I increased the ration to 16. 
+
+```bash
+openstack resource provider list
+openstack resource provider inventory list 27202a9f-e2ca-42d7-b147-f6cbb4397198
+openstack resource provider inventory class set 27202a9f-e2ca-42d7-b147-f6cbb4397198  VCPU --total 8 --max_unit 8 --allocation_ratio 16
+openstack resource provider inventory list 27202a9f-e2ca-42d7-b147-f6cbb4397198
+```
+
+# Duplicate Port Binding
+Credit: [https://bugs.launchpad.net/neutron/+bug/1849802/comments/7](https://bugs.launchpad.net/neutron/+bug/1849802/comments/7)
+Live migration was failing. ```/var/log/neutron/neutron-server.log``` said the port already existed at the target host. 
+
+```bash
+ERROR neutron.pecan_wsgi.hooks.translation oslo_db.exception.DBDuplicateEntry
+default default] create failed (client error): There was a conflict when trying to complete your request.
+```
+
+```/var/log/nova/nova-conductor.log``` Contains:
+```bash
+2024-01-05 04:12:46.063 1787 ERROR nova.network.neutron [instance: 344f91d5-ae4d-4982-80ae-533968eaefec] neutronclient.common.exceptions.Conflict: Binding for port 53f9aa72-ba76-44d0-aa55-a1afe4d20c66 on host hcn03 already exists.
+2024-01-05 04:16:14.188 1786 ERROR nova.network.neutron [None req-fce0a500-6cb6-4a27-bc34-aeedfaeed4da 373bfb0a19fe475c8ceffa3768b5af2a f3191ccb29cf4df7b0d2caea424cb6f1 - - default default] [instance: 344f91d5-ae4d-4982-80ae-533968eaefec] Binding failed for port 53f9aa72-ba76-44d0-aa55-a1afe4d20c66 and host hcn03.: neutronclient.common.exceptions.Conflict: Binding for port 53f9aa72-ba76-44d0-aa55-a1afe4d20c66 on host hcn03 already exists.
+
+```
+And sure enough:
+
+```openstack port list --host hcn02 |grep "53f9aa72-ba76-44d0-aa55-a1afe4d20c66"```
+and
+```openstack port list --host hcn03 |grep "53f9aa72-ba76-44d0-aa55-a1afe4d20c66"```
+Both show an active port. The following will remove the port binding on the target host after which migration should be possible. 
+
+```
+NEUTRON_API_URL=$(openstack endpoint list --service neutron --interface public -c URL -f value)
+TOKEN=$(openstack token issue -c id -f value)
+curl -X DELETE -H "X-Auth-Token: $TOKEN" ${NEUTRON_API_URL}/v2.0/ports/53f9aa72-ba76-44d0-aa55-a1afe4d20c66/bindings/hcn03
+```
+
+
+
+
+

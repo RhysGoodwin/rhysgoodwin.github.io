@@ -555,7 +555,6 @@ Install libvirt packages:
 
 ```bash
 apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virtinst libvirt-daemon-driver-storage-rbd -y
-#apt install libvirt-daemon-driver-storage-rbd -y
 systemctl restart  libvirtd
 ```
 On hcn01 setup libvirt for Ceph Access.  
@@ -714,7 +713,7 @@ Then from hcn02 **MIGRATE IT BACK AGAIN! (see warning below)**
 
 ```bash
 virsh list --all
-virsh migrate hcc01 --live qemu+ssh://hcn01/system
+virsh don't migrate hcc01 --live qemu+ssh://hcn01/system
 virsh list --all
 ```
 
@@ -1984,10 +1983,10 @@ Enable redirect_resolve_ip_addr so that if the active manager moves to a differe
 ceph config set mgr mgr/dashboard/redirect_resolve_ip_addr True
 ```
 
-### Yet to try this. 
+### Enable TLS for Grafana in Ceph Dash
 ceph config-key set mgr/cephadm/{hostname}/grafana_key -i $PWD/key.pem
 ceph config-key set mgr/cephadm/{hostname}/grafana_crt -i $PWD/certificate.pem
-
+ceph orch reconfig grafana
 
 ## TLS for Skyline Dashboard
 Make a certs directory on huci01: ```/etc/skyline/certs/```
@@ -2008,7 +2007,7 @@ docker run -d --name skyline --restart=always -e SSL_CERTFILE=/etc/skyline/certs
 
 In theory refreshing the cert should just be a case of copying the cert files back to that same path which we could do with a certbot hook. Later.
 
-## Simple Self CA
+## Simple Self CA (Certificate Authority)
 Credit: [https://arminreiter.com/2022/01/create-your-own-certificate-authority-ca-using-openssl/](https://arminreiter.com/2022/01/create-your-own-certificate-authority-ca-using-openssl/)
 
 ```bash
@@ -2368,9 +2367,9 @@ cryptsetup luksRemoveKey /dev/vda3
 ```
 
 
-## Useful Ceph Commands
+# Useful Ceph Commands
 
-### Prep cluster for shutdown of one or all hosts
+## Prep cluster for shutdown of one or all hosts
 If shutting down all hosts obviously stop all work loads running on Ceph. In my case I’d connect directly to the infra-mgmt VLAN to do this because access to the cl-mgmt interfaces is via the firewall which is stored on the cluster. If shutting down one host then the cluster will stay up. 
 
 Check Health:
@@ -2493,8 +2492,8 @@ Then reboot.
 
 
 
-## Monitoring server build
-- Create server mon01 on home servers, ssh and set passwd for user ubuntu
+# Monitoring server build
+- Create server mon01 in home servers project, ssh and set passwd for user ubuntu
 - Add cl-mgm interface, remove home-servers interface
 - Console to server and disable cloud init
 ```
@@ -2623,6 +2622,189 @@ systemctl start node_exporter
 systemctl status node_exporter
 ```
 
+#### Blackbox exporter
+TBC
+#### Install node exporter on mon01
+```bash
+wget https://github.com/prometheus/blackbox_exporter/releases/download/v0.25.0/blackbox_exporter-0.25.0.linux-amd64.tar.gz
+tar -xzf blackbox_exporter-0.25.0.linux-amd64.tar.gz
+mv blackbox_exporter-0.25.0.linux-amd64/blackbox_exporter /usr/local/bin
+
+mkdir /etc/blackbox_exporter
+wget https://raw.githubusercontent.com/prometheus/blackbox_exporter/master/example.yml
+mv blackbox_exporter-0.25.0.linux-amd64/blackbox.yml /etc/blackbox_exporter/
+
+vi /etc/systemd/system/blackbox_exporter.service
+```
+```ini
+[Unit]
+Description=Prometheus Blackbox Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/blackbox_exporter --config.file=/etc/blackbox_exporter/blackbox.yml
+
+[Install]
+WantedBy=multi-user.target
+
+```
+
+```bash
+systemctl daemon-reload
+systemctl enable blackbox_exporter
+systemctl start blackbox_exporter
+```
+
+
+
+#### Configure Prometheus to scrape data
+```vi /etc/prometheus/prometheus.yml```
+
+```yaml
+scrape_configs:
+  - job_name: 'blackbox'
+    metrics_path: /probe
+    params:
+      module: [http_2xx]  # Look for a HTTP 200 response.
+    static_configs:
+      - targets:
+        - http://prometheus.io    # Target to probe with http.
+        - https://prometheus.io   # Target to probe with https.
+        - http://example.com:8080 # Target to probe with http on port 8080.
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: mon01.i.rhysmg.nz:9115  # The blackbox exporter's real hostname:port.
+  - job_name: 'blackbox_exporter'  # collect blackbox exporter's operational metrics.
+    static_configs:
+      - targets: ['127.0.0.1:9115']
+
+```
+
+#### Install alertmanager
+```bash
+wget https://github.com/prometheus/alertmanager/releases/download/v0.27.0/alertmanager-0.27.0.linux-amd64.tar.gz
+tar -zxf alertmanager-0.27.0.linux-amd64.tar.gz
+cd alertmanager-0.27.0.linux-amd64
+sudo mv alertmanager /usr/local/bin/
+sudo mv amtool /usr/local/bin/
+mkdir /etc/alertmanager/
+vi 
+vi /etc/alertmanager/alertmanager.yml
+```
+
+```yaml
+global:
+  resolve_timeout: 5m
+route:
+  receiver: 'web.hook'
+receivers:
+- name: 'web.hook'
+  webhook_configs:
+  - url: 'http://localhost:5001/'
+
+```
+
+```bash
+vi /etc/systemd/system/alertmanager.service
+
+```
+
+```ini
+[Unit]
+Description=Prometheus Alertmanager
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=alertmanager
+Group=alertmanager
+ExecStart=/usr/local/bin/alertmanager \
+  --config.file=/etc/alertmanager/alertmanager.yml \
+  --storage.path=/var/lib/alertmanager/
+
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+
+```
+```bash
+
+useradd -rs /bin/false alertmanager
+mkdir /var/lib/alertmanager
+chown alertmanager:alertmanager /etc/alertmanager /var/lib/alertmanager
+
+systemctl daemon-reload
+systemctl enable alertmanager
+systemctl start alertmanager
+
+```
+Revist these, they look useful:
+https://samber.github.io/awesome-prometheus-alerts/rules#rule-host-and-hardware-1-13
+
+
+
+#### Libvirt Exporter (On all HCI nodes)
+There are vairous libvirt exports out there. The Ubuntu snap (```snap install prometheus-libvirt-exporter```) and the Ubuntu package (```apt install prometheus-libvirt-exporter```) were not so good for me. In the end I found this one to be most complete and useful:
+
+https://github.com/Tinkoff/libvirt-exporter
+
+And this is simply installed with docker:
+https://hub.docker.com/r/alekseizakharov/libvirt-exporter
+
+```bash
+docker run -p9177:9177 -d -v /var/run/libvirt:/var/run/libvirt alekseizakharov/libvirt-exporter:lates
+curl localhost:9177
+```
+Also configure the scaper job in ```/etc/prometheus/prometheus.yml```
+
+#### SNMP exporter
+**On mon01**
+```bash
+wget https://github.com/prometheus/snmp_exporter/releases/download/v0.25.0/snmp_exporter-0.25.0.linux-amd64.tar.gz
+tar -xzf snmp_exporter-0.25.0.linux-amd64.tar.gz
+cd snmp_exporter-0.25.0.linux-amd64
+cp snmp_exporter /usr/local/bin/
+mkdir /etc/snmp_exporter
+cp snmp.yml /etc/snmp_exporter/
+vi /etc/systemd/system/snmp_exporter.service
+```
+
+
+```ini
+[Unit]
+Description=SNMP Exporter
+After=network-online.target
+
+# This assumes you are running snmp_exporter under the user "prometheus"
+
+[Service]
+User=prometheus
+Restart=on-failure
+ExecStart=/usr/local/bin/snmp_exporter --config.file=/etc/snmp_exporter/snmp.yml
+
+[Install]
+WantedBy=multi-user.target
+
+```
+
+```bash
+systemctl daemon-reload
+systemctl enable snmp_exporter
+systemctl start snmp_exporter
+systemctl status snmp_exporter
+```
+
+
+
 # Resource Allocation Issue
 I was having issues with migrating VMs and was getting this notice in /var/log/nova/nova-scheduler.log
 ```Got no allocation candidates from the Placement API. This could be due to insufficient resources or a temporary occurrence as compute nodes start up.```
@@ -2668,3 +2850,48 @@ curl -X DELETE -H "X-Auth-Token: $TOKEN" ${NEUTRON_API_URL}/v2.0/ports/53f9aa72-
 
 
 
+# Dynamic Routing
+## On HCC01
+apt install neutron-dynamic-routing-common neutron-bgp-dragent
+Edit neutron.conf add ```neutron_dynamic_routing.services.bgp.bgp_plugin.BgpPlugin```
+service_plugins = router,neutron_dynamic_routing.services.bgp.bgp_plugin.BgpPlugin
+
+edit bgp_dragent.ini:
+[bpg]
+bgp_speaker_driver = neutron_dynamic_routing.services.bgp.agent.driver.os_ken.driver.OsKenBgpDriver
+bgp_router_id = 10.20.10.10
+
+
+## Run the database upgrade:
+```bash
+su -s /bin/sh -c "neutron-db-manage --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/plugins/ml2/ml2_conf.ini upgrade head" neutron
+```
+
+This should produce an output like this:
+
+```bash
+INFO  [alembic.runtime.migration] Context impl MySQLImpl.
+INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+  Running upgrade for neutron ...
+INFO  [alembic.runtime.migration] Context impl MySQLImpl.
+INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+  OK
+INFO  [alembic.runtime.migration] Context impl MySQLImpl.
+INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+  Running upgrade for neutron-dynamic-routing ...
+INFO  [alembic.runtime.migration] Context impl MySQLImpl.
+INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+INFO  [alembic.runtime.migration] Running upgrade  -> start_neutron_dynamic_routing, start neutron-dynamic-routing chain
+INFO  [alembic.runtime.migration] Running upgrade start_neutron_dynamic_routing -> 61cc795e43e8, initial
+INFO  [alembic.runtime.migration] Running upgrade 61cc795e43e8 -> 4cf8bc3edb66, rename tenant to project
+INFO  [alembic.runtime.migration] Running upgrade 4cf8bc3edb66 -> a589fdb5724c, change size of as number
+INFO  [alembic.runtime.migration] Running upgrade start_neutron_dynamic_routing -> f399fa0f5f25, initial
+  OK
+
+```
+
+```bash
+openstack bgp speaker create --ip-version 4 --local-as 65511 bgpspeaker
+openstack bgp speaker add network bgpspeaker lab-transit
+
+```

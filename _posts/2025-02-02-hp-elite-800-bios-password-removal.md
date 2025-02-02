@@ -1,5 +1,5 @@
 ---
-title: 'Elitedesk 800 G6 Mini BIOS password Removal'
+title: 'Elitedesk 800 G6 Mini BIOS Password Removal'
 date: '2025-02-02T00:00:00+00:00'
 permalink: /it/hp-elite-800-bios-password-removal/
 author_profile: true
@@ -46,4 +46,9 @@ Here’s what I did.
 
 [![](/content/uploads/2025/02/02/3.BIOSScreen.png){: width="450" }](/content/uploads/2025/02/02/3.BIOSScreen.png)
 
-Hope this helps someone and big thanks to Alice. No idea how this was discovered. 
+All set for the new mini-cluster build!
+
+[![](/content/uploads/2025/02/02/5.cluster-ready.png){: width="450" }](/content/uploads/2025/02/02/5.cluster-ready.png)
+
+
+Hope this helps someone, and big thanks to Alice, no idea how you discovered this!

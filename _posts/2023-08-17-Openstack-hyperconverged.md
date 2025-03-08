@@ -2220,6 +2220,7 @@ virt-install \
 - Complete the Windows install. For Windows 10 create the first user as ‘Admin’.
 The VM might stop when it goes for it's first reboot, restart it with ```virsh start win10-img```
 - Install the full virtio package
+- Set time zone
 - Update Windows
 - Set PowerShell policy to unrestricted
 - Disable Sleep (makes the VM die, haven't looked too far into it yet)
@@ -2230,23 +2231,81 @@ The VM might stop when it goes for it's first reboot, restart it with ```virsh s
   - Username: Admin (win10) or Administrator (Win Server)
   - run as local system
   - no sysprep
-- Use disk part to delete the recovery part (win10, Server 2022)
+- Configure cloud-init (cloudbase-init-unattend.conf)
+  - inject_user_password=false (Never take a clear text password from metadata, instead set a random password, encrypt with ssh pub key and post back to metadata service)
+  - allow_reboot=true (Allows cloudbase-init to reboot the system as required to complete the install)
+  - first_logon_behaviour=no (Never promt to set password at first login)
+
+Setting the hostname on Windows 10/11 machines. A known issue of Windows 10/11, which causes a SetComputerName function to run during the OOBE step, that changes the computer name to DESKTOP-randomstring. As we run our cloudbase-init-unattend during specialize(which is before oobe), the hostname plugin execution becomes irrelevant. [Credit](https://ask.cloudbase.it/question/1036/windows-10-hostname-not-being-set)
+
+Edit Unattend.xml and insert the  <FirstLogonCommands> section, or the   <SynchronousCommand wcm:action="add" wcm:keyValue="1"> section if <FirstLogonCommands> already exists
+
+```xml
+  <settings pass="oobeSystem">
+    <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State">
+      <!-- Other settings (OOBE, etc.) can go here -->
+ 
+      <FirstLogonCommands>
+        <SynchronousCommand wcm:action="add" wcm:keyValue="1">
+          <!-- Make sure PowerShell is called with ExecutionPolicy Bypass
+               so scripts can run without being blocked -->
+          <CommandLine>powershell.exe -ExecutionPolicy Bypass -File "C:\Windows\Setup\Scripts\Set-Hostname.ps1"</CommandLine>
+          <Description>Set Hostname from Metadata</Description>
+          <Order>1</Order>
+        </SynchronousCommand>
+      </FirstLogonCommands>
+ 
+    </component>
+  </settings>
+```
+
+Create the set hostname powershell script
+
+```powershell
+#C:\Windows\Setup\Scripts\Set-Hostname.ps1
+# Get the current Win32_ComputerSystem object
+$computer = Get-WmiObject Win32_ComputerSystem
+ 
+# Get the hostname from AWS/GCP/OpenStack metadata service
+# Adjust the URL path to suit your cloud provider; this example uses AWS
+$metaHostname = (New-Object System.Net.WebClient).DownloadString("http://169.254.169.254/latest/meta-data/hostname")
+ 
+# Extract the short name (before the dot)
+$desiredHostName = $metaHostname.Split('.')[0]
+ 
+# Rename the computer
+$computer.Rename($desiredHostName)
+```
+
+
+
+
+$computer = Get-WmiObject Win32_ComputerSystem
+$hostname = (New-Object System.Net.WebClient).DownloadString("http://169.254.169.254/latest/meta-data/hostname").Split('.')[0]
+$computer.Rename($hostname)
+
+
+
+- Use disk part to delete the recovery part (win10/11, Server 2022, Server 2025).
 - powercfg.exe /hibernate off
-- Configure cloud-init (Allow reboots)
-- Shrink the system partition, leave ~2GB
+- defrag C: /U /V
+- sdelete -z C:
+- Shutdown the VM and make a pre-sysprep copy of the qcow image file in case you want to make more changes, then start the VM again with 
+- Shrink the system partition using diskmanager, leave ~2GB. If it just won't shrink, boot from a live gparted ISO and shrink it that way. 
 - Take note of the final size of the OS partition e.g. 18GB
-- (Optional) Shutdown the VM and make a pre-sysprep copy of the qcow image file in case you want to make more changes, then start the VM again with 
+
 ```
 virsh start win10-img
 ```
-Run: 
+Run cmd as admin: 
 ```
+cd c:\Windows\System32\Sysprep
 sysprep.exe /generalize /oobe /shutdown /unattend:C:\progra~1\cloudb~1\cloudb~1\conf\Unattend.xml
 ```
 
 Once the VM shuts down after sysprep:
-- Shrink the qcow2 image to the size noted above plus a bit more to be safe. 
 - Convert the image to raw
+- Shrink the raw image to the size noted above plus a bit more to be safe. 
 - Create an OpenStack image 
 - Set the image properties
 

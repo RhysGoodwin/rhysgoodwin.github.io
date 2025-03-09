@@ -2238,6 +2238,8 @@ The VM might stop when it goes for it's first reboot, restart it with ```virsh s
 
 Setting the hostname on Windows 10/11 machines. A known issue of Windows 10/11, which causes a SetComputerName function to run during the OOBE step, that changes the computer name to DESKTOP-randomstring. As we run our cloudbase-init-unattend during specialize(which is before oobe), the hostname plugin execution becomes irrelevant. [Credit](https://ask.cloudbase.it/question/1036/windows-10-hostname-not-being-set)
 
+To remedy this we will add a post-cloudbase-init script to the oobeSystem pass. 
+
 Edit Unattend.xml and insert the  <FirstLogonCommands> section, or the   <SynchronousCommand wcm:action="add" wcm:keyValue="1"> section if <FirstLogonCommands> already exists
 
 ```xml
@@ -2249,7 +2251,7 @@ Edit Unattend.xml and insert the  <FirstLogonCommands> section, or the   <Synchr
         <SynchronousCommand wcm:action="add" wcm:keyValue="1">
           <!-- Make sure PowerShell is called with ExecutionPolicy Bypass
                so scripts can run without being blocked -->
-          <CommandLine>powershell.exe -ExecutionPolicy Bypass -File "C:\Windows\Setup\Scripts\Set-Hostname.ps1"</CommandLine>
+          <CommandLine>powershell.exe -ExecutionPolicy Bypass -File "c:\oshci\post-cloudbase-init\post-cloudbase-init.ps1"</CommandLine>
           <Description>Set Hostname from Metadata</Description>
           <Order>1</Order>
         </SynchronousCommand>
@@ -2259,32 +2261,50 @@ Edit Unattend.xml and insert the  <FirstLogonCommands> section, or the   <Synchr
   </settings>
 ```
 
-Create the set hostname powershell script
-
+Create the post cloudbase-init powershell script c:\oshci\post-cloudbase-init\post-cloudbase-init.ps1
 ```powershell
-#C:\Windows\Setup\Scripts\Set-Hostname.ps1
+# Event source name
+$source = "oshci Post-cloudbase-init"
+#Create event source
+if(-not [System.Diagnostics.EventLog]::SourceExists($source)) {
+    New-EventLog -LogName System -Source $source
+}
+
 # Get the current Win32_ComputerSystem object
 $computer = Get-WmiObject Win32_ComputerSystem
  
-# Get the hostname from AWS/GCP/OpenStack metadata service
-# Adjust the URL path to suit your cloud provider; this example uses AWS
+# Get the hostname from metadata
 $metaHostname = (New-Object System.Net.WebClient).DownloadString("http://169.254.169.254/latest/meta-data/hostname")
  
 # Extract the short name (before the dot)
 $desiredHostName = $metaHostname.Split('.')[0]
- 
-# Rename the computer
-$computer.Rename($desiredHostName)
+
+# Check if a rename is required
+if($computer.Name -notlike $desiredHostName)
+{
+
+    Write-EventLog -LogName System -Source $source -EventId 1122 -EntryType Information -Message "Current hostname does not match metadata. System will be renamed from $($computer.Name) to $desiredHostName and rebooted."
+    # Rename the computer and restart
+    $computer.Rename($desiredHostName)
+    Restart-Computer
+}
+else
+{
+    Write-EventLog -LogName System -Source $source -EventId 1123 -EntryType Information -Message "Current hostname matches metadata. System will not be renamed."
+}
 ```
 
 
-
-
-$computer = Get-WmiObject Win32_ComputerSystem
-$hostname = (New-Object System.Net.WebClient).DownloadString("http://169.254.169.254/latest/meta-data/hostname").Split('.')[0]
-$computer.Rename($hostname)
-
-
+- Bitlocker
+On win 11 disable before sysprep:
+```
+manage-bde -off C:
+```
+It may take a few minutes to decrypt. You can view the status by running
+```
+manage-bde -status
+```
+[Credit](https://www.dell.com/community/en/conversations/image-assist/workaround-bitlocker-prevents-sysprep-on-vm-in-24h2/671aa8c40acd30163138f18b)
 
 - Use disk part to delete the recovery part (win10/11, Server 2022, Server 2025).
 - powercfg.exe /hibernate off
